@@ -1,0 +1,234 @@
+/* ============================================
+   MEET JAKE SECTION
+   ============================================ */
+
+.meet-jake {
+  background: var(--white);
+  padding: var(--space-4xl) 0;
+}
+
+.meet-jake-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .meet-jake-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+/* Portrait column */
+.meet-jake-portrait-col {
+  position: relative;
+}
+
+.meet-jake-portrait-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--coastal-mist);
+}
+
+.meet-jake-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Decorative corner accent */
+.meet-jake-portrait-frame::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.meet-jake-portrait-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Credential badge */
+.meet-jake-badge {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: -var(--space-lg);
+  background: var(--navy);
+  color: var(--white);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  border: 1px solid rgba(182,154,113,0.2);
+  transform: translateX(-20px);
+}
+
+.meet-jake-badge-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.meet-jake-badge-sub {
+  font-size: 0.7rem;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .meet-jake-badge { transform: none; left: var(--space-lg); }
+  .meet-jake-portrait-frame::before,
+  .meet-jake-portrait-frame::after { display: none; }
+}
+
+/* Content column */
+.meet-jake-content .label-overline {
+  color: var(--gold);
+  margin-bottom: var(--space-md);
+}
+
+.meet-jake-content .display-2 {
+  color: var(--navy);
+  margin-bottom: var(--space-lg);
+}
+
+.meet-jake-bio {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+/* Credential pillars */
+.meet-jake-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.meet-jake-pillar {
+  padding: var(--space-md);
+  background: var(--ivory);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--gold);
+}
+
+.meet-jake-pillar-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.meet-jake-pillar-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.meet-jake-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meet-jake-social {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: var(--space-xs);
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 1.5px solid rgba(22,40,59,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--navy);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Awards strip */
+.meet-jake-awards {
+  margin-top: var(--space-3xl);
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--coastal-mist);
+  text-align: center;
+}
+
+.meet-jake-awards-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: var(--space-lg);
+}
+
+.meet-jake-awards-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.award-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.award-icon { font-size: 2rem; }
+
+.award-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.award-sub {
+  font-size: 0.6rem;
+  color: var(--text-light);
+  font-style: italic;
+}

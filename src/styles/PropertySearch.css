@@ -1,0 +1,402 @@
+/* ============================================
+   JAKE MAINES REALTY — HOME DISCOVERY
+   Compact, single-panel interactive experience
+   ============================================ */
+
+.ps-discovery {
+  background: #f7f9fa;
+  color: #173047;
+  padding: 48px 24px 60px;
+}
+
+.ps-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.ps-heading {
+  text-align: center;
+  margin: 0 auto 24px;
+}
+
+.ps-eyebrow {
+  display: block;
+  color: #ad8962;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+}
+
+.ps-heading h2 {
+  margin: 8px 0;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: clamp(30px, 3.3vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+
+.ps-heading h2 em,
+.ps-panel-copy h3 em {
+  color: #0799c5;
+  font-family: var(--font-serif, Georgia, serif);
+  font-weight: 400;
+}
+
+.ps-heading p {
+  margin: 0;
+  color: #60778b;
+  font-size: 14px;
+}
+
+.ps-module {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #dce6ec;
+  border-radius: 13px;
+  box-shadow: 0 14px 45px rgba(18, 45, 67, 0.07);
+}
+
+.ps-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #f8fafb;
+  border-bottom: 1px solid #dce6ec;
+}
+
+.ps-tab {
+  appearance: none;
+  padding: 15px 10px 12px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid #e4eaf0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  color: #42596a;
+  cursor: pointer;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.ps-tab:last-child {
+  border-right: 0;
+}
+
+.ps-tab:hover {
+  background: #edf5f8;
+}
+
+.ps-tab.is-active {
+  background: #fff;
+  color: #123c56;
+  border-bottom-color: #0c99c2;
+}
+
+.ps-tab:focus-visible,
+.ps-primary:focus-visible,
+.ps-communities button:focus-visible,
+.ps-text-link:focus-visible {
+  outline: 3px solid #0b9ac6;
+  outline-offset: -3px;
+}
+
+.ps-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  min-height: 300px;
+}
+
+.ps-visual {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  background: #d9e8ef;
+}
+
+.ps-visual img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: ps-image-in 0.35s ease-out;
+}
+
+.ps-visual-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 35, 51, 0.78), transparent 65%);
+}
+
+.ps-visual-caption {
+  position: absolute;
+  right: 20px;
+  bottom: 22px;
+  left: 26px;
+  display: grid;
+  gap: 8px;
+  color: #fff;
+}
+
+.ps-visual-caption span {
+  color: #dceef4;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.ps-visual-caption strong {
+  max-width: 310px;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(21px, 2.1vw, 30px);
+  font-weight: 500;
+  line-height: 1.13;
+}
+
+.ps-panel-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 22px clamp(20px, 3vw, 42px);
+}
+
+.ps-panel-copy h3 {
+  margin: 0;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: clamp(24px, 2.3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.ps-panel-copy > p {
+  margin: 0;
+  color: #60778b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ps-form {
+  display: grid;
+  gap: 10px;
+}
+
+.ps-form label {
+  display: grid;
+  gap: 5px;
+  color: #294d66;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ps-form input,
+.ps-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 39px;
+  padding: 0 11px;
+  background: #f9fbfc;
+  border: 1px solid #d2e0e8;
+  border-radius: 5px;
+  color: #1d3a50;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 12px;
+}
+
+.ps-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ps-primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 15px;
+  background: #087fa5;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.ps-primary:hover {
+  background: #096789;
+}
+
+.ps-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ps-steps span {
+  padding: 8px 9px;
+  background: #f5f9fb;
+  border: 1px solid #d6e5ec;
+  border-radius: 5px;
+  color: #31576d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ps-communities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.ps-communities button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 10px;
+  background: #f8fbfc;
+  border: 1px solid #d9e6ed;
+  border-radius: 5px;
+  color: #2c526a;
+  cursor: pointer;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.ps-communities button:hover {
+  background: #edf8fb;
+  border-color: #0799c5;
+}
+
+.ps-text-link {
+  color: #087fa5;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ps-text-link:hover {
+  text-decoration: underline;
+}
+
+.ps-result {
+  padding: 9px 11px;
+  background: #f2f9fc;
+  border-left: 3px solid #0c99c2;
+  font-size: 12px;
+}
+
+.ps-result p {
+  margin: 4px 0;
+  color: #52697d;
+  line-height: 1.5;
+}
+
+.ps-result a {
+  color: #087fa5;
+  font-weight: 700;
+}
+
+.ps-disclaimer {
+  margin: 0;
+  padding: 8px 16px;
+  background: #f8fafb;
+  border-top: 1px solid #edf1f4;
+  color: #7a8c99;
+  font-size: 10px;
+  text-align: right;
+}
+
+@keyframes ps-image-in {
+  from {
+    opacity: 0.65;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .ps-discovery {
+    padding: 45px 16px;
+  }
+
+  .ps-heading h2 {
+    font-size: clamp(29px, 7vw, 39px);
+  }
+
+  .ps-heading p {
+    font-size: 13px;
+  }
+
+  .ps-tab {
+    padding: 14px 6px 12px;
+    font-size: 11px;
+  }
+
+  .ps-content {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-visual {
+    min-height: 170px;
+    height: 170px;
+  }
+
+  .ps-visual-caption {
+    bottom: 15px;
+    left: 18px;
+  }
+
+  .ps-visual-caption strong {
+    font-size: 23px;
+  }
+
+  .ps-panel-copy {
+    padding: 22px 19px;
+  }
+
+  .ps-disclaimer {
+    text-align: left;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 360px) {
+  .ps-fields,
+  .ps-communities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-visual img,
+  .ps-tab,
+  .ps-primary {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,526 @@
+/* ============================================
+   PROPERTY SEARCH SECTION
+   ============================================ */
+
+.search-section {
+  background: var(--white);
+  padding: var(--space-4xl) 0;
+  position: relative;
+}
+
+.search-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--coastal-mist);
+  margin-bottom: var(--space-2xl);
+  justify-content: center;
+}
+
+.search-tab {
+  padding: 1rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.search-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.search-tab.active {
+  color: var(--navy);
+}
+
+.search-tab.active::after {
+  transform: scaleX(1);
+}
+
+.search-tab:hover {
+  color: var(--navy);
+}
+
+/* Search form */
+.search-form {
+  background: var(--ivory);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid rgba(182, 154, 113, 0.15);
+}
+
+.search-form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: var(--space-sm);
+  align-items: end;
+}
+
+@media (max-width: 900px) {
+  .search-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .search-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.search-input,
+.search-select {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border: 1.5px solid rgba(22, 40, 59, 0.12);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.search-input:focus,
+.search-select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(182, 154, 113, 0.15);
+}
+
+.search-input::placeholder {
+  color: var(--text-light);
+}
+
+.search-btn {
+  padding: 0.9rem 2.2rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-btn:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* Popular search tags */
+.search-popular {
+  margin-top: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.search-popular-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.search-tag {
+  padding: 0.4rem 1rem;
+  background: var(--white);
+  border: 1px solid rgba(22, 40, 59, 0.12);
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-tag:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(182, 154, 113, 0.06);
+}
+
+/* Sell panel */
+.sell-panel {
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
+
+.sell-panel .display-2 {
+  color: var(--navy);
+  margin-bottom: var(--space-md);
+}
+
+.sell-panel p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.7;
+}
+
+.sell-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .sell-options { grid-template-columns: 1fr; }
+}
+
+.sell-option-card {
+  background: var(--ivory);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  border: 1px solid rgba(182, 154, 113, 0.15);
+  text-align: left;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.sell-option-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sell-option-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: var(--space-md);
+}
+
+.sell-option-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: var(--space-xs);
+}
+
+.sell-option-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Neighborhoods panel */
+.neighborhoods-grid-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (max-width: 900px) {
+  .neighborhoods-grid-preview { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .neighborhoods-grid-preview { grid-template-columns: 1fr; }
+}
+
+.neighborhood-preview-card {
+  position: relative;
+  height: 160px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--navy), var(--coastal-blue));
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-md);
+  transition: transform var(--transition-base);
+}
+
+.neighborhood-preview-card:hover { transform: scale(1.02); }
+
+.neighborhood-preview-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.neighborhood-preview-count {
+  font-size: 0.7rem;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================
+   MODERN COASTAL SEARCH — DESIGN UPGRADE
+   ============================================ */
+
+.search-section {
+  background: #f7fafc;
+  padding: 0 0 90px;
+  position: relative;
+  z-index: 20;
+  scroll-margin-top: 90px;
+}
+
+.search-section > .container {
+  position: relative;
+  margin-top: -34px;
+  padding: 34px 42px 42px;
+  background: #fff;
+  border: 1px solid #e6edf2;
+  border-radius: 20px;
+  box-shadow: 0 20px 65px rgba(13, 39, 60, .13);
+}
+
+.search-section .section-header {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.search-section .label-overline {
+  color: #159fc8;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .15em;
+}
+
+.search-section .gold-rule {
+  display: none;
+}
+
+.search-section .display-2 {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: clamp(1.65rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  color: #14283d;
+  line-height: 1.2;
+  margin: 10px 0 0;
+}
+
+.search-tabs {
+  justify-content: flex-start;
+  gap: 8px;
+  border-bottom: 1px solid #e6edf2;
+  margin-bottom: 25px;
+}
+
+.search-tab {
+  padding: 13px 22px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: none;
+  border-radius: 9px 9px 0 0;
+  color: #627587;
+}
+
+.search-tab::after {
+  background: #159fc8;
+  height: 3px;
+}
+
+.search-tab.active {
+  color: #087da4;
+  background: #edf9fd;
+}
+
+.search-form {
+  background: #f6f9fb;
+  border: 1px solid #e5edf2;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.search-form-grid {
+  gap: 14px;
+}
+
+.search-label {
+  color: #4b657b;
+  font-size: 10px;
+  letter-spacing: .09em;
+}
+
+.search-input,
+.search-select {
+  min-height: 50px;
+  background: #fff;
+  border: 1px solid #dce6ed;
+  border-radius: 8px;
+  color: #14283d;
+  font-size: 14px;
+}
+
+.search-input:focus,
+.search-select:focus {
+  border-color: #159fc8;
+  box-shadow: 0 0 0 3px rgba(21,159,200,.12);
+}
+
+.search-btn {
+  min-height: 50px;
+  justify-content: center;
+  background: #129fc9;
+  border-radius: 8px;
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+.search-btn:hover {
+  background: #087fa5;
+  box-shadow: 0 8px 20px rgba(18,159,201,.22);
+}
+
+.search-popular {
+  margin-top: 17px;
+  gap: 8px;
+}
+
+.search-popular-label {
+  color: #63788a;
+  font-size: 10px;
+}
+
+.search-tag {
+  padding: 7px 13px;
+  border: 1px solid #dce8ef;
+  background: #fff;
+  border-radius: 999px;
+  color: #38556b;
+  font-size: 12px;
+}
+
+.search-tag:hover {
+  color: #087fa5;
+  border-color: #159fc8;
+  background: #effaff;
+}
+
+.search-tab:focus-visible,
+.search-tag:focus-visible,
+.search-btn:focus-visible {
+  outline: 3px solid #159fc8;
+  outline-offset: 3px;
+}
+
+.sell-option-card {
+  background: #f6f9fb;
+  border-color: #e5edf2;
+  cursor: default;
+}
+
+.sell-option-icon {
+  background: #e0f5fc;
+}
+
+.neighborhood-preview-card {
+  border-radius: 12px;
+}
+
+.neighborhood-preview-count {
+  color: #b9ddeb;
+}
+
+@media (max-width: 900px) {
+  .search-section > .container {
+    padding: 28px 24px 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .search-section {
+    padding-bottom: 55px;
+  }
+
+  .search-section > .container {
+    margin-top: -16px;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .search-tabs {
+    gap: 0;
+  }
+
+  .search-tab {
+    flex: 1;
+    padding: 12px 8px;
+    font-size: 11px;
+  }
+
+  .search-form {
+    padding: 17px;
+  }
+
+  .search-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+}
+
+/* Separate home discovery section from hero */
+
+.search-section {
+  margin-top: 0 !important;
+  padding-top: 70px !important;
+}
+
+@media (max-width: 768px) {
+  .search-section {
+    padding-top: 45px !important;
+  }
+}
+

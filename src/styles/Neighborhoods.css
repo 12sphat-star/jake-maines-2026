@@ -1,0 +1,193 @@
+/* ============================================
+   NEIGHBORHOODS SECTION
+   ============================================ */
+
+.neighborhoods-section {
+  background: var(--ivory);
+  padding: var(--space-4xl) 0;
+}
+
+.neighborhoods-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 1024px) {
+  .neighborhoods-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .neighborhoods-cards { grid-template-columns: 1fr; }
+}
+
+/* Neighborhood card */
+.neighborhood-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 340px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.neighborhood-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--shadow-xl);
+}
+
+.neighborhood-card:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* Background gradient */
+.neighborhood-card-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  transition: transform var(--transition-slow);
+}
+
+.neighborhood-card:hover .neighborhood-card-bg {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay */
+.neighborhood-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(22, 40, 59, 0.6) 60%,
+    rgba(22, 40, 59, 0.95) 100%
+  );
+  z-index: 1;
+  transition: opacity var(--transition-base);
+}
+
+/* Featured card (first one, larger) */
+.neighborhood-card.card-featured {
+  grid-column: span 2;
+  height: 420px;
+}
+
+@media (max-width: 1024px) {
+  .neighborhood-card.card-featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .neighborhood-card.card-featured {
+    grid-column: span 1;
+    height: 340px;
+  }
+}
+
+/* Content */
+.neighborhood-card-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-xl);
+  width: 100%;
+}
+
+.neighborhood-card-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+}
+
+.neighborhood-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: var(--space-xs);
+}
+
+.neighborhood-card.card-featured .neighborhood-card-name {
+  font-size: 2.4rem;
+}
+
+.neighborhood-card-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+  max-width: 400px;
+}
+
+.neighborhood-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.neighborhood-meta-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.neighborhood-meta-number {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.neighborhood-meta-label {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Explore link */
+.neighborhood-card-explore {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-base);
+}
+
+.neighborhood-card:hover .neighborhood-card-explore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neighborhood-card-placeholder-disclaimer {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: 0.62rem;
+  color: var(--text-light);
+  font-style: italic;
+}

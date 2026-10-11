@@ -1,0 +1,54 @@
+/* Jake Maines Realty — Contact and Footer (complete replacement) */
+.contact-section, .footer { box-sizing: border-box; }
+.contact-section *, .footer * { box-sizing: border-box; }
+.contact-section { padding: 100px 0; background: #f5f8fa; color: #14283b; scroll-margin-top: 85px; }
+.contact-section .container, .footer .container { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(35px, 6vw, 100px); align-items: start; }
+.contact-info { padding-top: 22px; }
+.contact-info .label-overline { margin: 0; color: #a98551; font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+.contact-info .gold-rule { width: 52px; height: 2px; margin: 20px 0 28px; border: 0; background: #d9b46b; }
+.contact-info .display-2 { margin: 0 0 22px; color: #112b42; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 500; line-height: 1.1; letter-spacing: -.04em; }
+.contact-info-body { max-width: 500px; margin: 0 0 38px; color: #546a7b; font-size: 16px; line-height: 1.8; }
+.contact-details { display: flex; flex-direction: column; gap: 24px; }
+.contact-detail-item { display: flex; gap: 15px; align-items: flex-start; }
+.contact-detail-icon { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 12px; background: #e7eff3; font-size: 19px; }
+.contact-detail-label { margin-bottom: 4px; color: #718494; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+.contact-detail-value { overflow-wrap: anywhere; color: #142d43; font-size: 15px; font-weight: 600; }
+.contact-form-card { min-width: 0; padding: clamp(25px, 3vw, 42px); border: 1px solid #dfe7ed; border-radius: 22px; background: #fff; box-shadow: 0 20px 55px rgba(16, 42, 61, .08); }
+.contact-form-title { margin: 0 0 28px; color: #142b41; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.65rem, 2.5vw, 2.1rem); font-weight: 500; }
+.contact-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px; }
+.contact-form-field { display: flex; flex-direction: column; min-width: 0; gap: 8px; }
+.contact-form-field.full-width { grid-column: 1 / -1; }
+.contact-form-label { color: #40576a; font-size: 13px; font-weight: 700; }
+.contact-form-input, .contact-form-select, .contact-form-textarea { display: block; width: 100%; min-width: 0; padding: 13px 15px; border: 1px solid #d4e0e8; border-radius: 9px; outline: none; background: #f9fbfc; color: #182e43; font: inherit; font-size: 15px; transition: border-color .2s, box-shadow .2s; }
+.contact-form-input, .contact-form-select { min-height: 49px; }
+.contact-form-textarea { min-height: 128px; resize: vertical; }
+.contact-form-input:focus, .contact-form-select:focus, .contact-form-textarea:focus { border-color: #b99a62; box-shadow: 0 0 0 3px rgba(217,180,107,.18); }
+.contact-form-submit { display: flex; width: 100%; justify-content: center; align-items: center; min-height: 52px; margin-top: 25px; padding: 14px 20px; border: 0; border-radius: 9px; background: #d9b46b; color: #10233b; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; transition: background .2s, transform .2s; }
+.contact-form-submit:hover { background: #edc982; transform: translateY(-1px); }
+.contact-form-privacy { margin: 16px 0 0; color: #64788a; font-size: 12px; line-height: 1.65; }
+.footer { padding: 85px 0 25px; background: #0d1d2c; color: #eaf0f5; }
+.footer-grid { display: grid; grid-template-columns: minmax(270px, 1.7fr) repeat(3, minmax(125px, 1fr)); gap: clamp(25px, 4vw, 65px); }
+.footer-brand .nav-logo-name { display: block; color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: 30px; line-height: 1.2; }
+.footer-brand .nav-logo-tag { display: block; margin-top: 5px; color: #d9b46b; font-size: 11px; font-weight: 700; letter-spacing: .18em; }
+.footer-brand-desc { max-width: 350px; margin: 27px 0; color: #aab8c6; font-size: 14px; line-height: 1.85; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social-link { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; background: rgba(255,255,255,.05); color: #dce7f0; font-size: 17px; text-decoration: none; transition: background .2s, color .2s; }
+.footer-social-link:hover { background: #d9b46b; color: #10233b; }
+.footer-col-title { margin: 5px 0 26px; color: #d9b46b; font-size: 12px; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+.footer-links { display: flex; flex-direction: column; gap: 19px; margin: 0; padding: 0; list-style: none; }
+.footer .footer-link { display: inline-block; color: #b2bfcb; font-size: 14px; line-height: 1.5; text-decoration: none; transition: color .2s; }
+.footer .footer-link:hover, .footer .footer-link:focus-visible { color: #f1d49b; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 28px; margin-top: 70px; padding-top: 27px; border-top: 1px solid rgba(255,255,255,.12); }
+.footer-legal { max-width: 850px; margin: 0; color: #9cabb9; font-size: 12px; line-height: 1.8; }
+.footer-license { margin: 0; color: #aebbc7; font-size: 12px; line-height: 1.8; white-space: nowrap; }
+/* Visible 12 Stone credit */
+.footer .stone-credit { display: flex; flex-direction: column; align-items: center; gap: 9px; margin-top: 32px; padding: 26px 16px 12px; border-top: 1px solid rgba(255,255,255,.13); text-align: center; }
+.footer .stone-credit-eyebrow { color: #d9b46b; font-size: 10px; font-weight: 800; letter-spacing: .18em; }
+.footer .stone-credit-link { color: #f7f9fc; font-size: clamp(17px,2vw,22px); font-weight: 500; text-decoration: none; line-height: 1.4; }
+.footer .stone-credit-link strong { color: #d9b46b; font-weight: 800; }
+.footer .stone-credit-link:hover, .footer .stone-credit-link:focus-visible { text-decoration: underline; text-underline-offset: 5px; }
+@media (max-width: 950px) { .footer-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } .footer-brand { grid-column: 1 / -1; } .contact-grid { gap: 35px; } }
+@media (max-width: 720px) { .contact-section { padding: 65px 0; } .contact-grid { grid-template-columns: 1fr; } .footer { padding-top: 65px; } .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 38px 22px; } .footer-bottom { flex-direction: column; margin-top: 50px; gap: 14px; } .footer-license { white-space: normal; } }
+@media (max-width: 460px) { .contact-section .container, .footer .container { width: min(100% - 32px, 1200px); } .contact-form-grid { grid-template-columns: 1fr; } .contact-form-card { padding: 22px 18px; } .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+@media (prefers-reduced-motion: reduce) { .contact-form-submit, .footer-social-link, .footer .footer-link { transition: none; } .contact-form-submit:hover { transform: none; } }

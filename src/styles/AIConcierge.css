@@ -1,0 +1,306 @@
+/* ============================================
+   AI CONCIERGE WIDGET
+   ============================================ */
+
+/* Floating trigger button */
+.ai-concierge-trigger {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border: 2px solid rgba(182,154,113,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(22,40,59,0.35), 0 0 0 0 rgba(182,154,113,0.4);
+  animation: pulse-gold 3s ease-in-out infinite;
+  transition: transform var(--transition-base), box-shadow var(--transition-fast);
+}
+
+.ai-concierge-trigger:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 40px rgba(22,40,59,0.4), var(--shadow-gold);
+  animation: none;
+}
+
+.ai-concierge-trigger-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.ai-concierge-trigger-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--white);
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Panel */
+.ai-concierge-panel {
+  position: fixed;
+  bottom: 110px;
+  right: 32px;
+  z-index: 901;
+  width: 360px;
+  border-radius: var(--radius-xl);
+  background: rgba(22, 40, 59, 0.97);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(182,154,113,0.2);
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(182,154,113,0.08);
+  overflow: hidden;
+  transform-origin: bottom right;
+  transition: transform 0.35s var(--ease-bounce), opacity 0.25s var(--ease-smooth);
+}
+
+.ai-concierge-panel.is-closed {
+  transform: scale(0.85) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ai-concierge-panel.is-open {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Panel header */
+.ai-concierge-header {
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, rgba(182,154,113,0.12), rgba(182,154,113,0.06));
+  border-bottom: 1px solid rgba(182,154,113,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-concierge-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.ai-concierge-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.ai-online-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4ade80;
+  border: 2px solid var(--navy);
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ai-concierge-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.ai-concierge-subtitle {
+  font-size: 0.65rem;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+
+.ai-concierge-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.ai-concierge-close:hover { color: var(--white); }
+
+/* Chat area */
+.ai-concierge-messages {
+  padding: var(--space-md) var(--space-lg);
+  min-height: 180px;
+  max-height: 260px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ai-message {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.ai-message-bubble {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
+  padding: 0.65rem var(--space-md);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+  max-width: 85%;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.user-message-bubble {
+  background: rgba(182,154,113,0.15);
+  border: 1px solid rgba(182,154,113,0.25);
+  border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg);
+  padding: 0.65rem var(--space-md);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.55;
+  max-width: 85%;
+}
+
+.ai-typing-indicator {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%       { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Quick reply chips */
+.ai-quick-replies {
+  padding: 0 var(--space-lg) var(--space-md);
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.ai-quick-chip {
+  padding: 0.35rem 0.9rem;
+  background: rgba(182,154,113,0.1);
+  border: 1px solid rgba(182,154,113,0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: var(--gold-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.ai-quick-chip:hover {
+  background: rgba(182,154,113,0.2);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+/* Input area */
+.ai-concierge-input-row {
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.ai-concierge-input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.ai-concierge-input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.ai-concierge-input:focus {
+  border-color: rgba(182,154,113,0.4);
+}
+
+.ai-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.ai-send-btn:hover {
+  background: var(--gold-dark);
+  transform: scale(1.05);
+}
+
+.ai-concierge-disclaimer {
+  padding: 0.4rem var(--space-lg);
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .ai-concierge-panel { width: calc(100vw - 2rem); right: 1rem; }
+  .ai-concierge-trigger { right: 1rem; bottom: 1rem; }
+}
