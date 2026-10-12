@@ -1,50 +1,1249 @@
-/* Jake Maines Realty — Dedicated Buyer Experience */
-.bx-page { background: #fff; color: #173047; }
-.bx-page *, .bx-page *::before, .bx-page *::after { box-sizing: border-box; }
-.bx-container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
-.bx-eyebrow { display: block; color: #ad8962; font-size: 11px; font-weight: 800; letter-spacing: .17em; line-height: 1.5; }
-.bx-hero { padding: 115px 24px 74px; background: #f4f7f8; }
-.bx-hero-inner { width: min(1240px, 100%); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(28px, 5vw, 75px); }
-.bx-hero-copy h1 { margin: 16px 0 22px; font-size: clamp(39px, 4.5vw, 69px); letter-spacing: -.055em; line-height: 1.06; font-weight: 750; }
-.bx-page h1 em, .bx-page h2 em { color: #078fb7; font-family: var(--font-serif, Georgia, serif); font-weight: 400; }
-.bx-hero-copy > p:not(.bx-search-note) { color: #587083; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.7; max-width: 540px; }
-.bx-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.bx-button { display: inline-flex; justify-content: center; align-items: center; gap: 18px; min-height: 48px; padding: 13px 19px; border: 1px solid transparent; border-radius: 5px; font-size: 13px; font-weight: 750; line-height: 1.35; text-decoration: none; transition: background .2s, transform .2s, border-color .2s; }
-.bx-button:hover { transform: translateY(-2px); }
-.bx-button:focus-visible, .bx-path-card a:focus-visible { outline: 3px solid #0799c5; outline-offset: 3px; }
-.bx-button-primary { color: #fff; background: #087fa5; }
-.bx-button-primary:hover { background: #096789; }
-.bx-button-outline { color: #173047; background: transparent; border-color: #a8beca; }
-.bx-button-outline:hover { background: #e6eff3; }
-.bx-search-note { margin-top: 14px; color: #6b8290; font-size: 12px; line-height: 1.5; }
-.bx-hero-image { position: relative; overflow: hidden; border-radius: 13px; aspect-ratio: 5 / 4; background: #cfdfe5; box-shadow: 0 24px 55px rgba(20, 47, 65, .13); }
-.bx-hero-image::after { content: ''; position: absolute; inset: 50% 0 0; background: linear-gradient(transparent, rgba(13, 36, 53, .68)); }
-.bx-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.bx-hero-image span { position: absolute; bottom: 24px; left: 25px; z-index: 1; color: #fff; font-size: 11px; letter-spacing: .16em; font-weight: 800; }
-.bx-section { padding: 76px 0 85px; }
-.bx-section-heading { max-width: 760px; margin: 0 auto 33px; text-align: center; }
-.bx-section-heading h2, .bx-bottom-inner h2 { margin: 12px 0; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -.04em; line-height: 1.13; }
-.bx-section-heading p { color: #647c8d; line-height: 1.7; font-size: 15px; }
-.bx-path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.bx-path-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 255px; padding: 28px; border: 1px solid #dce7ec; border-radius: 10px; background: #fff; box-shadow: 0 10px 28px rgba(23, 48, 71, .04); }
-.bx-path-number { color: #b39162; font-weight: 800; font-size: 12px; letter-spacing: .12em; }
-.bx-path-card h3 { margin: 19px 0 9px; font-size: 21px; letter-spacing: -.025em; }
-.bx-path-card p { margin: 0 0 22px; color: #60778b; line-height: 1.6; font-size: 14px; }
-.bx-path-card a { margin-top: auto; color: #087fa5; font-size: 13px; font-weight: 800; text-decoration: none; }
-.bx-path-card a:hover { text-decoration: underline; }
-.bx-neighborhood-section { background: #f5f8f9; }
-.bx-community-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.bx-community-card { padding: 29px 25px; border: 1px solid #dce7ec; border-radius: 10px; background: #fff; }
-.bx-community-card h3 { margin: 0 0 12px; font-size: 20px; line-height: 1.25; }
-.bx-community-card p { margin: 0; color: #61788a; line-height: 1.75; font-size: 14px; }
-.bx-neighborhood-footer { display: flex; justify-content: center; margin-top: 32px; }
-.bx-bottom-cta { background: #142f45; color: #fff; padding: 58px 0; }
-.bx-bottom-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-.bx-bottom-inner h2 { max-width: 650px; }
-.bx-bottom-inner p { color: #c4d2dd; line-height: 1.6; }
-.bx-button-gold { flex-shrink: 0; color: #172b3d; background: #d9b46b; }
-.bx-button-gold:hover { background: #edc984; }
-.bx-demo-disclaimer { margin: 0; padding: 12px 24px; color: #728592; background: #f8fafb; font-size: 11px; line-height: 1.5; text-align: center; }
-@media (max-width: 850px) { .bx-hero-inner { grid-template-columns: 1fr; } .bx-hero { padding-top: 100px; } .bx-hero-image { max-height: 400px; } .bx-path-grid, .bx-community-grid { grid-template-columns: 1fr; } .bx-path-card { min-height: 0; } }
-@media (max-width: 600px) { .bx-container { width: min(100% - 32px, 1180px); } .bx-hero { padding: 95px 16px 50px; } .bx-hero-copy h1 { font-size: clamp(36px, 10vw, 49px); } .bx-actions { flex-direction: column; } .bx-actions .bx-button { width: 100%; } .bx-section { padding: 54px 0; } .bx-bottom-inner { flex-direction: column; align-items: flex-start; } .bx-button-gold { width: 100%; } }
-@media (prefers-reduced-motion: reduce) { .bx-button { transition: none; } }
+/* =======================================================
+   JAKE MAINES REALTY — DEDICATED BUYER EXPERIENCE
+   Relatable Hampton Roads Living × Interactive Journey Planner
+   ======================================================= */
+
+.bx-experience {
+  background: var(--ivory, #F8F7F4);
+  color: var(--navy, #16283B);
+  overflow-x: hidden;
+}
+
+/* --- 1. HERO SECTION --- */
+.bx-hero {
+  position: relative;
+  min-height: 640px;
+  min-height: min(780px, 90svh);
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  background: var(--navy-dark, #0E1C2A);
+  overflow: hidden;
+}
+
+.bx-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.bx-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+
+.bx-hero:hover .bx-hero-img {
+  transform: scale(1.05);
+}
+
+.bx-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 28, 42, 0.94) 0%,
+    rgba(14, 28, 42, 0.84) 48%,
+    rgba(14, 28, 42, 0.45) 85%,
+    rgba(14, 28, 42, 0.28) 100%
+  );
+}
+
+.bx-hero-content {
+  padding-top: 130px;
+  padding-bottom: 75px;
+  max-width: 820px;
+}
+
+.bx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-gold, #D9B46B);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.bx-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-gold, #D9B46B);
+  box-shadow: 0 0 10px rgba(217, 180, 107, 0.6);
+}
+
+.bx-hero-title {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(3rem, 5.2vw, 4.8rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 22px;
+}
+
+.bx-hero-title span {
+  color: var(--accent-gold, #D9B46B);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.bx-hero-subtitle {
+  color: rgba(248, 247, 244, 0.9);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.75;
+  max-width: 650px;
+  margin-bottom: 34px;
+}
+
+.bx-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.bx-btn-main {
+  min-height: 52px;
+  padding: 14px 28px;
+  background: var(--accent-gold, #D9B46B);
+  color: var(--navy-dark, #10233B);
+  border: 1px solid var(--accent-gold, #D9B46B);
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 24px rgba(217, 180, 107, 0.28);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-btn-main:hover {
+  background: #EDC982;
+  border-color: #EDC982;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(217, 180, 107, 0.38);
+}
+
+.bx-btn-secondary {
+  min-height: 52px;
+  padding: 14px 26px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.bx-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.bx-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bx-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(248, 247, 244, 0.82);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.bx-trust-icon {
+  color: var(--accent-gold, #D9B46B);
+  flex-shrink: 0;
+}
+
+/* --- 2. THREE BUYER STEPS ROADMAP (Phase 2C Item 3) --- */
+.bx-roadmap-section {
+  padding: 85px 0 95px;
+  background: var(--ivory, #F8F7F4);
+  border-bottom: 1px solid rgba(22, 40, 59, 0.08);
+}
+
+.bx-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.bx-roadmap-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 40, 59, 0.08);
+  border-radius: 16px;
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(22, 40, 59, 0.03);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bx-roadmap-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-dark, #9A8060), var(--accent-gold, #D9B46B));
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.bx-roadmap-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(182, 154, 113, 0.45);
+  box-shadow: 0 16px 36px rgba(22, 40, 59, 0.08);
+}
+
+.bx-roadmap-card:hover::before {
+  opacity: 1;
+}
+
+.bx-roadmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.bx-roadmap-number {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--navy, #16283B);
+  line-height: 1;
+}
+
+.bx-roadmap-icon {
+  color: var(--gold-dark, #9A8060);
+  background: rgba(182, 154, 113, 0.12);
+  padding: 8px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.bx-roadmap-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark, #9A8060);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.bx-roadmap-heading {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--navy, #16283B);
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.bx-roadmap-desc {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-secondary, #4A5568);
+  margin: 0 0 22px;
+  flex: 1;
+}
+
+.bx-roadmap-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid rgba(22, 40, 59, 0.08);
+  padding-top: 18px;
+}
+
+.bx-roadmap-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--navy, #16283B);
+}
+
+.bx-point-check {
+  color: var(--gold-dark, #9A8060);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --- 3. INTERACTIVE BUYER PLANNER (Phase 2C Item 2) --- */
+.bx-planner-section {
+  padding: 85px 0 95px;
+  background: #FFFFFF;
+}
+
+.bx-planner-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(28px, 4vw, 55px);
+  align-items: start;
+  margin-top: 48px;
+}
+
+.bx-planner-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.bx-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bx-group-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bx-group-header h3 {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--navy, #16283B);
+  margin: 0;
+}
+
+.bx-group-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #4A5568);
+  margin: 2px 0 0;
+}
+
+.bx-step-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--navy, #16283B);
+  color: var(--accent-gold, #D9B46B);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Category 1: Property Style Chips */
+.bx-option-chips {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.bx-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  background: var(--ivory, #F8F7F4);
+  border: 1px solid rgba(22, 40, 59, 0.1);
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-chip:hover {
+  background: #FFFFFF;
+  border-color: rgba(182, 154, 113, 0.5);
+  transform: translateX(3px);
+}
+
+.bx-chip.is-active {
+  background: #FFFFFF;
+  border-color: var(--gold-dark, #9A8060);
+  box-shadow: 0 4px 16px rgba(182, 154, 113, 0.2);
+}
+
+.bx-chip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.bx-chip-title {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy, #16283B);
+}
+
+.bx-chip.is-active .bx-chip-title {
+  color: var(--navy-dark, #0E1C2A);
+}
+
+.bx-chip-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold-dark, #9A8060);
+  background: rgba(182, 154, 113, 0.12);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.bx-chip-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #4A5568);
+  line-height: 1.4;
+}
+
+/* Category 2: Priority Grid */
+.bx-option-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.bx-priority-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 18px;
+  background: var(--ivory, #F8F7F4);
+  border: 1px solid rgba(22, 40, 59, 0.1);
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-priority-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(182, 154, 113, 0.5);
+  transform: translateX(3px);
+}
+
+.bx-priority-card.is-active {
+  background: #FFFFFF;
+  border-color: var(--gold-dark, #9A8060);
+  box-shadow: 0 4px 16px rgba(182, 154, 113, 0.2);
+}
+
+.bx-priority-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bx-priority-icon {
+  color: var(--gold-dark, #9A8060);
+  flex-shrink: 0;
+}
+
+.bx-priority-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy, #16283B);
+}
+
+.bx-priority-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #4A5568);
+  line-height: 1.4;
+  margin: 0;
+  padding-left: 32px;
+}
+
+/* Category 3: Budget Row */
+.bx-budget-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bx-budget-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  background: var(--ivory, #F8F7F4);
+  border: 1px solid rgba(22, 40, 59, 0.1);
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-budget-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(182, 154, 113, 0.5);
+  transform: translateY(-2px);
+}
+
+.bx-budget-card.is-active {
+  background: #FFFFFF;
+  border-color: var(--gold-dark, #9A8060);
+  box-shadow: 0 4px 16px rgba(182, 154, 113, 0.2);
+}
+
+.bx-budget-card strong {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.15rem;
+  color: var(--navy, #16283B);
+}
+
+.bx-budget-card small {
+  font-size: 0.72rem;
+  color: var(--text-secondary, #4A5568);
+  line-height: 1.4;
+}
+
+/* Category 4: Timeline Chips */
+.bx-timeline-chips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bx-timeline-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--ivory, #F8F7F4);
+  border: 1px solid rgba(22, 40, 59, 0.1);
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy, #16283B);
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-timeline-chip:hover {
+  background: #FFFFFF;
+  border-color: rgba(182, 154, 113, 0.5);
+  transform: translateY(-2px);
+}
+
+.bx-timeline-chip.is-active {
+  background: #FFFFFF;
+  border-color: var(--gold-dark, #9A8060);
+  box-shadow: 0 4px 16px rgba(182, 154, 113, 0.2);
+}
+
+/* Action Bar */
+.bx-generate-action-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.bx-generate-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 24px;
+  background: var(--navy, #16283B);
+  color: #FFFFFF;
+  border: 1px solid var(--navy, #16283B);
+  font-size: 0.88rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(22, 40, 59, 0.2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-generate-btn:hover {
+  background: var(--gold-dark, #9A8060);
+  border-color: var(--gold-dark, #9A8060);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(182, 154, 113, 0.35);
+}
+
+.bx-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 52px;
+  padding: 14px 18px;
+  border: 1px solid rgba(22, 40, 59, 0.15);
+  background: #FFFFFF;
+  color: var(--navy, #16283B);
+  font-size: 0.8rem;
+  font-weight: 650;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bx-reset-btn:hover {
+  background: var(--ivory, #F8F7F4);
+  border-color: rgba(22, 40, 59, 0.3);
+}
+
+/* --- Generated Summary Card & Recommendations --- */
+.bx-planner-summary {
+  position: sticky;
+  top: 96px;
+}
+
+.bx-summary-card {
+  background: linear-gradient(170deg, #FFFFFF 0%, #FAF8F4 100%);
+  border: 1px solid rgba(182, 154, 113, 0.4);
+  border-radius: 18px;
+  padding: clamp(24px, 3vw, 34px);
+  box-shadow: 0 12px 40px rgba(22, 40, 59, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-planner-summary.is-generated .bx-summary-card {
+  border-color: var(--accent-gold, #D9B46B);
+  box-shadow: 0 16px 48px rgba(182, 154, 113, 0.22);
+}
+
+.bx-summary-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark, #9A8060);
+  background: rgba(182, 154, 113, 0.14);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.bx-summary-top h3 {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: var(--navy, #16283B);
+  margin: 0 0 6px;
+}
+
+.bx-summary-top p {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #4A5568);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.bx-summary-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 14px 16px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid rgba(22, 40, 59, 0.08);
+}
+
+.bx-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.bx-summary-label {
+  color: var(--text-secondary, #4A5568);
+  font-weight: 500;
+}
+
+.bx-summary-row strong {
+  color: var(--navy, #16283B);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Recommendations with WHY and TRADEOFF */
+.bx-matches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.bx-matches-header h4 {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy, #16283B);
+  margin: 0;
+}
+
+.bx-matches-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-dark, #9A8060);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bx-community-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bx-community-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 40, 59, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(22, 40, 59, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.bx-community-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(182, 154, 113, 0.5);
+}
+
+.bx-community-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.bx-community-name {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy, #16283B);
+  display: block;
+  line-height: 1.2;
+}
+
+.bx-community-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary, #4A5568);
+  margin-top: 2px;
+}
+
+.bx-community-badge {
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-dark, #9A8060);
+  background: rgba(182, 154, 113, 0.12);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.bx-community-housing {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-secondary, #4A5568);
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(22, 40, 59, 0.08);
+}
+
+.bx-community-why {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--navy, #16283B);
+}
+
+.bx-community-why strong {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--gold-dark, #9A8060);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.bx-community-why p {
+  margin: 0;
+}
+
+.bx-community-tradeoff {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.73rem;
+  line-height: 1.4;
+  color: #718096;
+  background: var(--ivory, #F8F7F4);
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.bx-tradeoff-icon {
+  color: #C07D38;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Actions in Summary */
+.bx-summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.bx-summary-btn {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: var(--navy, #16283B);
+  color: #FFFFFF;
+  border: 1px solid var(--navy, #16283B);
+  font-weight: 750;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.bx-summary-btn:hover {
+  background: var(--gold-dark, #9A8060);
+  border-color: var(--gold-dark, #9A8060);
+  transform: translateY(-2px);
+}
+
+.bx-summary-btn-outline {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  color: var(--navy, #16283B);
+  border: 1px solid rgba(22, 40, 59, 0.2);
+  font-size: 0.8rem;
+  font-weight: 650;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.bx-summary-btn-outline:hover {
+  background: rgba(22, 40, 59, 0.05);
+  border-color: var(--navy, #16283B);
+}
+
+.bx-summary-note {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: var(--text-muted, #718096);
+  margin: 0;
+}
+
+/* --- 4. LIFESTYLE GALLERY --- */
+.bx-lifestyle-section {
+  padding: 85px 0 95px;
+  background: var(--ivory, #F8F7F4);
+  border-top: 1px solid rgba(22, 40, 59, 0.08);
+}
+
+.bx-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.bx-gallery-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 40, 59, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(22, 40, 59, 0.03);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(22, 40, 59, 0.08);
+}
+
+.bx-gallery-media {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.bx-gallery-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bx-gallery-card:hover .bx-gallery-media img {
+  transform: scale(1.05);
+}
+
+.bx-gallery-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(14, 28, 42, 0.6) 0%, transparent 60%);
+}
+
+.bx-gallery-location {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  background: rgba(14, 28, 42, 0.65);
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.bx-gallery-body {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bx-gallery-body h3 {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--navy, #16283B);
+  margin: 0 0 10px;
+}
+
+.bx-gallery-body p {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary, #4A5568);
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.bx-gallery-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  color: var(--navy, #16283B);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bx-gallery-link:hover {
+  color: var(--gold-dark, #9A8060);
+  transform: translateX(3px);
+}
+
+.bx-gallery-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* --- 5. REDESIGNED HIGH-ENERGY BUYER CONVERSION SECTION (Phase 2C Item 6) --- */
+.bx-conversion-section {
+  padding: 85px 0 95px;
+  background: #FFFFFF;
+}
+
+.bx-conversion-card {
+  background: linear-gradient(135deg, var(--navy-dark, #0E1C2A) 0%, var(--navy, #16283B) 100%);
+  border: 1px solid rgba(182, 154, 113, 0.4);
+  border-radius: 22px;
+  padding: clamp(32px, 5vw, 64px);
+  box-shadow: 0 20px 60px rgba(14, 28, 42, 0.25);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 4.5vw, 56px);
+  align-items: center;
+  color: #FFFFFF;
+}
+
+.bx-conversion-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.bx-conversion-headline {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin: 12px 0 18px;
+}
+
+.bx-conversion-headline em {
+  color: var(--accent-gold, #D9B46B);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.bx-conversion-lead {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(248, 247, 244, 0.9);
+  margin-bottom: 34px;
+  max-width: 580px;
+}
+
+.bx-conversion-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.bx-conversion-disclosure {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: rgba(248, 247, 244, 0.6);
+  margin: 0;
+  max-width: 540px;
+}
+
+/* Right column preview card */
+.bx-preview-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(182, 154, 113, 0.3);
+  border-radius: 16px;
+  padding: clamp(22px, 3vw, 32px);
+  backdrop-filter: blur(12px);
+}
+
+.bx-preview-header {
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bx-preview-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-gold, #D9B46B);
+}
+
+.bx-preview-header h4 {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 6px 0 0;
+}
+
+.bx-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bx-preview-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.bx-preview-num {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-gold, #D9B46B);
+  background: rgba(217, 180, 107, 0.12);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bx-preview-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  font-weight: 650;
+  margin-bottom: 2px;
+}
+
+.bx-preview-item p {
+  font-size: 0.78rem;
+  color: rgba(248, 247, 244, 0.75);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 980px) {
+  .bx-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bx-planner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bx-planner-summary {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .bx-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bx-conversion-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .bx-hero-content {
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .bx-hero-title {
+    font-size: clamp(2.5rem, 9vw, 3.4rem);
+  }
+
+  .bx-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bx-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bx-budget-row,
+  .bx-timeline-chips {
+    grid-template-columns: 1fr;
+  }
+
+  .bx-generate-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bx-generate-btn,
+  .bx-reset-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bx-trust-strip {
+    gap: 14px;
+  }
+
+  .bx-trust-item {
+    font-size: 0.7rem;
+  }
+
+  .bx-conversion-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bx-conversion-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Reduced Motion Preference (Phase 2C Item 5) */
+@media (prefers-reduced-motion: reduce) {
+  .bx-hero-img,
+  .bx-btn-main,
+  .bx-btn-secondary,
+  .bx-roadmap-card,
+  .bx-gallery-card,
+  .bx-gallery-media img,
+  .bx-chip,
+  .bx-priority-card,
+  .bx-budget-card,
+  .bx-timeline-chip {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

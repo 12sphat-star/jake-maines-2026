@@ -55,14 +55,16 @@ export default function SellReady() {
   const [improved, setImproved] = useState(340000)
   const [improvements, setImprovements] = useState(15000)
   const [sellingRate, setSellingRate] = useState(0)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const root = useRef(null)
   useEffect(() => {
     const node = root.current
-    if (!node) return
-    if (!('IntersectionObserver' in window)) { setVisible(true); return }
+    if (!node || !('IntersectionObserver' in window)) return
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setVisible(true); observer.disconnect() }
+      if (entry.isIntersecting) {
+        setVisible(true)
+        observer.disconnect()
+      }
     }, { threshold: 0.08 })
     observer.observe(node)
     return () => observer.disconnect()

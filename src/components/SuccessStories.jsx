@@ -1,105 +1,79 @@
+import { Link } from 'react-router-dom'
 import '../styles/SuccessStories.css'
 
-// All stories are placeholder design content — real testimonials to be collected from verified clients
-const stories = [
+const advisorySteps = [
   {
-    id: 'story-1',
-    initials: 'S.M.',
-    name: '[Client Name — Placeholder]',
-    location: 'Virginia Beach Oceanfront',
-    quote: '"Working with Jake transformed what felt like an overwhelming process into something incredibly smooth. His knowledge of the market gave us the confidence to make the right moves at the right time."',
-    result: '⚠️ Specific outcome data not provided — placeholder for verified testimonial',
+    number: '01',
+    label: 'Pre-Listing Assessment',
+    eyebrow: 'EVALUATION & DATA',
+    desc: 'An in-depth property walk-through to review condition, evaluate recent neighborhood sales across Hampton Roads, and identify strategic value-building opportunities.',
   },
   {
-    id: 'story-2',
-    initials: 'T.R.',
-    name: '[Client Name — Placeholder]',
-    location: 'Great Neck, Virginia Beach',
-    quote: '"The Sell Ready program opened our eyes to improvements we hadn\'t considered. Jake\'s contractor connections were professional, and we felt supported throughout the entire journey."',
-    result: '⚠️ Specific outcome data not provided — placeholder for verified testimonial',
+    number: '02',
+    label: 'Strategic Preparation',
+    eyebrow: 'THE SELL READY PATH',
+    desc: 'Whether coordinating high-impact updates through the Sell Ready program or focusing on key cosmetic details, Jake helps you prioritize updates that matter to prospective buyers.',
   },
   {
-    id: 'story-3',
-    initials: 'A.K.',
-    name: '[Client Name — Placeholder]',
-    location: 'Chesapeake, VA',
-    quote: '"Jake found us the perfect home in a competitive market. His negotiation skill and local insight made all the difference. We couldn\'t be happier with where we landed."',
-    result: '⚠️ Specific outcome data not provided — placeholder for verified testimonial',
+    number: '03',
+    label: 'Targeted Market Launch',
+    eyebrow: 'MAXIMUM VISIBILITY',
+    desc: 'Professional photography and video walkthroughs, tailored listing distribution, and disciplined negotiation focused on your ideal timeline and net outcome.',
   },
 ]
 
 export default function SuccessStories() {
   return (
-    <section className="success-section" id="stories" aria-label="Seller and buyer success stories">
+    <section className="advisory-section" id="seller-advisory" aria-labelledby="advisory-heading">
       <div className="container">
         <div className="section-header">
-          <p className="label-overline">Client Experiences</p>
+          <p className="label-overline">Strategic Representation</p>
           <hr className="gold-rule center" aria-hidden="true" />
-          <h2 className="display-2">Real People, Real Results.</h2>
+          <h2 className="display-2" id="advisory-heading">A Guided Path from Consultation to Closing</h2>
           <p>
-            Every transaction tells a story. Here's what clients say about working with Jake 
-            across Virginia Beach and Hampton Roads.
+            Selling a home in Hampton Roads requires thoughtful preparation. Jake’s advisory 
+            approach helps you protect your equity, avoid unnecessary expenses, and enter 
+            the market with a clear plan.
           </p>
         </div>
 
-        <div className="stories-grid" role="list" aria-label="Client testimonials">
-          {stories.map(story => (
-            <article
-              key={story.id}
-              id={story.id}
-              className="story-card"
-              role="listitem"
-              aria-label={`Testimonial from ${story.name}`}
-            >
-              {/* Before / After design placeholder */}
-              <div
-                className="story-card-images"
-                aria-label="Before and after home transformation placeholder"
-              >
-                <div className="story-image-panel story-image-before" aria-hidden="true">
-                  <span className="story-image-icon">🏚</span>
-                  <span className="story-image-label">Before</span>
-                </div>
-                <div className="story-image-panel story-image-after" aria-hidden="true">
-                  <span className="story-image-icon">🏡</span>
-                  <span className="story-image-label">After</span>
-                </div>
-                <div className="story-divider-badge" aria-hidden="true">→</div>
+        <div className="advisory-grid" role="list" aria-label="Seller advisory steps">
+          {advisorySteps.map((step) => (
+            <article className="advisory-card" key={step.number} role="listitem">
+              <div className="advisory-card-top">
+                <span className="advisory-number">{step.number}</span>
+                <span className="advisory-kicker">{step.eyebrow}</span>
               </div>
-
-              {/* Body */}
-              <div className="story-card-body">
-                <div className="story-stars" aria-label="5 star rating">
-                  {'★★★★★'.split('').map((s, i) => (
-                    <span key={i} aria-hidden="true">{s}</span>
-                  ))}
-                </div>
-
-                <blockquote className="story-card-quote">{story.quote}</blockquote>
-
-                <div className="story-card-attribution">
-                  <div className="story-attribution-avatar" aria-hidden="true">
-                    {story.initials}
-                  </div>
-                  <div>
-                    <div className="story-attribution-name">{story.name}</div>
-                    <div className="story-attribution-location">{story.location}</div>
-                  </div>
-                </div>
-
-                <div className="story-card-result" role="note">
-                  <span className="story-result-text">{story.result}</span>
-                </div>
-              </div>
+              <h3 className="advisory-title">{step.label}</h3>
+              <p className="advisory-desc">{step.desc}</p>
             </article>
           ))}
         </div>
 
-        <p className="success-disclaimer" role="note">
-          ⚠️ Testimonials shown above are design placeholders only. All published testimonials must be sourced from 
-          verified clients and approved for use. Do not publish this page with placeholder content.
-          Individual results vary and are not guaranteed.
-        </p>
+        <div className="advisory-footer">
+          <div className="advisory-cta-row">
+            <Link to="/contact" className="btn btn-primary" id="advisory-consult-cta">
+              Schedule a Seller Consultation
+              <span aria-hidden="true">→</span>
+            </Link>
+
+            <a
+              href="https://www.zillow.com/profile/jakemaines"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline"
+              id="advisory-zillow-cta"
+            >
+              Read Verified Reviews on Zillow
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <p className="advisory-disclaimer" role="note">
+            Each property and market situation is unique. Consultations provide customized guidance 
+            based on current market conditions and individual homeowner goals.
+          </p>
+        </div>
       </div>
     </section>
   )

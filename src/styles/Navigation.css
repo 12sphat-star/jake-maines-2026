@@ -1,21 +1,98 @@
-/* Jake Maines Realty — consistent light navigation */
+/* ============================================
+   JAKE MAINES REALTY — NAVIGATION SYSTEM
+   Adaptive luxury contrast for dark & light heroes
+   ============================================ */
+
 .nav {
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
   height: var(--nav-height, 76px);
-  background: rgba(250, 250, 249, 0.98);
-  border-bottom: 1px solid rgba(22, 40, 59, 0.1);
-  box-shadow: 0 2px 18px rgba(22, 40, 59, 0.05);
-  transition: background 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.nav.nav-transparent,
-.nav.nav-scrolled { background: rgba(250, 250, 249, 0.98); }
-.nav.nav-scrolled {
+
+/* --- Dark Hero State (Homepage top) --- */
+.nav.nav-dark-hero {
+  background: rgba(14, 28, 42, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.nav.nav-dark-hero .nav-logo-name {
+  color: #FFFFFF;
+}
+
+.nav.nav-dark-hero .nav-logo-realty {
+  color: #D9B46B;
+}
+
+.nav.nav-dark-hero .nav-logo-location {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.nav.nav-dark-hero .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav.nav-dark-hero .nav-link:hover,
+.nav.nav-dark-hero .nav-link-active:not(.nav-sell-ready):not(.nav-cta) {
+  color: #D9B46B;
+}
+
+.nav.nav-dark-hero .nav-link::after {
+  background: #D9B46B;
+}
+
+.nav.nav-dark-hero .nav-toggle span {
+  background: #FFFFFF;
+}
+
+/* --- Light Surface State (Inner pages & scrolled) --- */
+.nav.nav-light-surface {
+  background: rgba(248, 247, 244, 0.96);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 5px 22px rgba(22, 40, 59, 0.1);
+  border-bottom: 1px solid rgba(22, 40, 59, 0.08);
+  box-shadow: 0 4px 20px rgba(22, 40, 59, 0.06);
 }
+
+.nav.nav-light-surface .nav-logo-name {
+  color: #16283B;
+}
+
+.nav.nav-light-surface .nav-logo-realty {
+  color: #B69A71;
+}
+
+.nav.nav-light-surface .nav-logo-location {
+  color: #56697A;
+}
+
+.nav.nav-light-surface .nav-link {
+  color: #16283B;
+}
+
+.nav.nav-light-surface .nav-link:hover,
+.nav.nav-light-surface .nav-link-active:not(.nav-sell-ready):not(.nav-cta) {
+  color: #B69A71;
+}
+
+.nav.nav-light-surface .nav-link::after {
+  background: #B69A71;
+}
+
+.nav.nav-light-surface .nav-toggle span {
+  background: #16283B;
+}
+
+/* Scrolled elevation */
+.nav.nav-scrolled {
+  box-shadow: 0 6px 28px rgba(22, 40, 59, 0.1);
+}
+
+/* Inner layout */
 .nav-inner {
   display: flex;
   align-items: center;
@@ -23,49 +100,60 @@
   height: 100%;
   gap: 1.5rem;
 }
+
+/* Wordmark Logo */
 .nav-logo {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 3px;
+  gap: 2px;
   flex-shrink: 0;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
-.nav-logo:hover { opacity: 0.8; }
+
+.nav-logo:hover {
+  opacity: 0.88;
+}
+
 .nav-logo-name {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.4rem;
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.025em;
-  color: #16283b;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
 }
+
 .nav-logo-realty {
-  font-family: var(--font-sans, Arial, sans-serif);
-  font-size: 0.78rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.72rem;
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.28em;
-  color: #a78048;
+  line-height: 1;
+  letter-spacing: 0.26em;
+  transition: color 0.25s ease;
 }
+
 .nav-logo-location {
-  font-family: var(--font-sans, Arial, sans-serif);
-  font-size: 0.56rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.54rem;
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: 0.19em;
-  color: #56697a;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  transition: color 0.25s ease;
 }
+
+/* Links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(0.65rem, 1.35vw, 1.4rem);
+  gap: clamp(0.75rem, 1.4vw, 1.5rem);
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .nav-link {
   position: relative;
   display: inline-flex;
@@ -74,11 +162,10 @@
   background: transparent;
   border: 0;
   padding: 0.45rem 0;
-  color: #263d51;
-  font-family: var(--font-sans, Arial, sans-serif);
-  font-size: 0.73rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.06em;
   line-height: 1.3;
   text-decoration: none;
   text-transform: uppercase;
@@ -86,6 +173,7 @@
   cursor: pointer;
   transition: color 0.2s ease;
 }
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -93,53 +181,90 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #b58b50;
   transition: width 0.2s ease;
 }
-.nav-link:hover,
-.nav-link-active:not(.nav-sell-ready):not(.nav-cta) { color: #087fa5; }
+
 .nav-link:hover::after,
-.nav-link-active:not(.nav-sell-ready):not(.nav-cta)::after { width: 100%; }
+.nav-link-active:not(.nav-sell-ready):not(.nav-cta)::after {
+  width: 100%;
+}
+
+/* Signature Sell Ready Navigation Pill */
 .nav-links .nav-link.nav-sell-ready {
   display: inline-flex;
+  align-items: center;
   justify-content: center;
-  padding: 11px 19px;
-  border-radius: 100px;
-  background: #d9b46b;
-  color: #10233b;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #D9B46B;
+  color: #10233B !important;
   font-weight: 800;
-  letter-spacing: 0.025em;
-  box-shadow: 0 4px 16px rgba(217, 180, 107, 0.2);
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(217, 180, 107, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.nav-links .nav-link.nav-sell-ready::after { display: none; }
+
+.nav-links .nav-link.nav-sell-ready::after {
+  display: none;
+}
+
 .nav-links .nav-link.nav-sell-ready:hover,
 .nav-links .nav-link.nav-sell-ready:focus-visible,
 .nav-links .nav-link.nav-sell-ready.nav-link-active {
-  background: #f0cd88;
-  color: #10233b;
-  box-shadow: 0 5px 18px rgba(217, 180, 107, 0.3);
+  background: #EDC982;
+  color: #10233B !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(217, 180, 107, 0.35);
 }
+
+/* Let's Connect CTA Button */
 .nav-cta,
 .nav.nav-scrolled .nav-cta {
-  background: #b7996e;
-  color: #fff !important;
-  padding: 0.8rem 1.15rem;
-  border-radius: var(--radius-sm, 4px);
+  background: #16283B;
+  color: #FFFFFF !important;
+  border: 1px solid #16283B;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
   font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.055em;
-  transition: background 0.2s ease, transform 0.2s ease;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  transition: all 0.2s ease;
 }
-.nav-cta::after { display: none; }
-.nav-cta:hover { background: #97794e; transform: translateY(-1px); }
+
+.nav.nav-dark-hero .nav-cta {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF !important;
+  backdrop-filter: blur(8px);
+}
+
+.nav.nav-dark-hero .nav-cta:hover {
+  background: #D9B46B;
+  border-color: #D9B46B;
+  color: #10233B !important;
+  transform: translateY(-1px);
+}
+
+.nav.nav-light-surface .nav-cta:hover {
+  background: #B69A71;
+  border-color: #B69A71;
+  transform: translateY(-1px);
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+/* Focus visibility */
 .nav-link:focus-visible,
 .nav-logo:focus-visible,
 .nav-toggle:focus-visible,
 .nav-mobile-link:focus-visible {
-  outline: 3px solid #087fa5;
+  outline: 2px solid #D9B46B;
   outline-offset: 4px;
 }
+
+/* Mobile Toggle */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -149,17 +274,29 @@
   background: transparent;
   border: 0;
 }
+
 .nav-toggle span {
   display: block;
   width: 24px;
-  height: 1.5px;
-  background: #16283b;
+  height: 2px;
+  border-radius: 2px;
   transform-origin: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
 }
-.nav-toggle.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
-.nav-toggle.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Overlay Drawer */
 .nav-mobile {
   position: fixed;
   top: var(--nav-height, 76px);
@@ -168,48 +305,92 @@
   z-index: 999;
   max-height: calc(100vh - var(--nav-height, 76px));
   overflow-y: auto;
-  background: rgba(22, 40, 59, 0.99);
+  background: rgba(14, 28, 42, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: var(--space-lg, 24px);
-  border-bottom: 1px solid rgba(182, 154, 113, 0.25);
+  border-bottom: 1px solid rgba(217, 180, 107, 0.3);
   transform: translateY(-12px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
 }
-.nav-mobile.is-open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+
+.nav-mobile.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 .nav-mobile-links {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: var(--space-md, 16px);
-  margin: 0;
+  margin: 0 0 var(--space-lg, 24px);
   padding: 0;
 }
+
 .nav-mobile-link {
   display: block;
   width: 100%;
   padding: 0.75rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  color: #fff;
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.25rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, padding-left 0.2s ease;
 }
+
 .nav-mobile-link:hover,
-.nav-mobile-link.active { color: #e7c17d; }
-.nav-mobile .btn-primary { width: 100%; justify-content: center; margin-top: var(--space-md, 16px); }
+.nav-mobile-link.active {
+  color: #D9B46B;
+  padding-left: 6px;
+}
+
+.nav-mobile .btn-primary {
+  width: 100%;
+  justify-content: center;
+  background: #D9B46B;
+  color: #10233B;
+  font-weight: 800;
+  border-radius: 6px;
+  padding: 14px;
+}
+
 @media (max-width: 1100px) {
-  .nav-links { display: none; }
-  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
 }
+
 @media (max-width: 600px) {
-  .nav-logo-name { font-size: 1.25rem; }
-  .nav-logo-realty { font-size: 0.7rem; }
-  .nav-logo-location { font-size: 0.5rem; }
+  .nav-logo-name {
+    font-size: 1.3rem;
+  }
+  .nav-logo-realty {
+    font-size: 0.65rem;
+  }
+  .nav-logo-location {
+    font-size: 0.5rem;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .nav, .nav-logo, .nav-link, .nav-link::after, .nav-cta,
-  .nav-toggle span, .nav-mobile, .nav-mobile-link { transition: none; }
+  .nav,
+  .nav-logo,
+  .nav-link,
+  .nav-link::after,
+  .nav-cta,
+  .nav-toggle span,
+  .nav-mobile,
+  .nav-mobile-link {
+    transition: none;
+  }
 }

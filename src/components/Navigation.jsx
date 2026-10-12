@@ -48,18 +48,17 @@ export default function Navigation() {
   }, [])
 
   useEffect(() => {
-    setMenuOpen(false)
     window.scrollTo(0, 0)
   }, [location.pathname])
+
+  const isDarkHero = location.pathname === '/' && !scrolled && !menuOpen
 
   return (
     <>
       <nav
         className={`nav ${
-          scrolled || menuOpen
-            ? 'nav-scrolled'
-            : 'nav-transparent'
-        }`}
+          isDarkHero ? 'nav-dark-hero' : 'nav-light-surface'
+        } ${scrolled ? 'nav-scrolled' : ''} ${menuOpen ? 'nav-menu-open' : ''}`}
         aria-label="Main navigation"
       >
         <div className="container nav-inner">

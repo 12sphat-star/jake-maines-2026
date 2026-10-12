@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import '../styles/ContactFooter.css'
 
 const CONTACT_EMAIL = 'contact@jakemainesrealtor.com' // Confirm this address with Jake before publishing.
+const CURRENT_YEAR = new Date().getFullYear()
 
 const contactDetails = [
   { icon: '📍', label: 'Serving', value: 'Virginia Beach & Hampton Roads, VA' },
@@ -198,7 +199,7 @@ export default function ContactFooter() {
 
           <div className="footer-bottom">
             <p className="footer-legal">
-              © {new Date().getFullYear()} Jake Maines Realty. All rights reserved.{' '}
+              © {CURRENT_YEAR} Jake Maines Realty. All rights reserved.{' '}
               This website is for informational purposes only and does not constitute legal or financial advice.{' '}
               Sell Ready results vary; renovation work and costs are subject to separately agreed terms.
             </p>

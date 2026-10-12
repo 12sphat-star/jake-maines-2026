@@ -8,15 +8,17 @@
   /* Brand Colors */
   --ivory: #F8F7F4;
   --navy: #16283B;
-  --navy-light: #1e3650;
-  --navy-dark: #0e1c2a;
+  --navy-light: #1E3650;
+  --navy-dark: #0E1C2A;
   --gold: #B69A71;
-  --gold-light: #cdb68d;
-  --gold-dark: #9a8060;
-  --white: #ffffff;
+  --gold-light: #CDB68D;
+  --gold-dark: #9A8060;
+  --white: #FFFFFF;
   --coastal-blue: #4A7FA5;
   --coastal-mist: #E8EEF3;
   --warm-sand: #E8DDD0;
+  --accent-gold: #D9B46B;
+  --accent-gold-soft: #F4E8D1;
 
   /* Text */
   --text-primary: #16283B;

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import PropertySearch from './components/PropertySearch'
+import SellReadyTeaser from './components/SellReadyTeaser'
 import BuyerExperience from './components/BuyerExperience'
 import SellReady from './components/SellReady'
 import FeaturedListings from './components/FeaturedListings'
@@ -14,66 +15,81 @@ import ContactFooter from './components/ContactFooter'
 
 function HomePage() {
   return (
-    <main id="main-content">
-      <Hero />
-      <PropertySearch />
-      <MeetJake />
+    <>
+      <main id="main-content">
+        <Hero />
+        <SellReadyTeaser />
+        <PropertySearch />
+        <MeetJake />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   )
 }
 
 function BuyPage() {
   return (
-    <main id="main-content">
-      <BuyerExperience />
+    <>
+      <main id="main-content">
+        <BuyerExperience />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   )
 }
 
 function SellPage() {
   return (
-    <main id="main-content">
-      <SellReady />
-      <SuccessStories />
+    <>
+      <main id="main-content">
+        <SellReady />
+        <SuccessStories />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   )
 }
 
 function NeighborhoodsPage() {
   return (
-    <main id="main-content">
-      <Neighborhoods />
+    <>
+      <main id="main-content">
+        <Neighborhoods />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   )
 }
 
 function ListingsPage() {
   return (
-    <main id="main-content">
-      <FeaturedListings />
+    <>
+      <main id="main-content">
+        <FeaturedListings />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   )
 }
 
 function AboutPage() {
   return (
-    <main id="main-content">
-      <MeetJake />
+    <>
+      <main id="main-content">
+        <MeetJake />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   )
 }
 
 function ContactPage() {
   return (
-    <main id="main-content">
-      <ContactFooter />
-    </main>
+    <>
+      <main id="main-content">
+        <ContactFooter />
+      </main>
+    </>
   )
 }
 
