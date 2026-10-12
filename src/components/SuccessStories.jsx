@@ -1,26 +1,28 @@
 import { Link } from 'react-router-dom'
 import '../styles/SuccessStories.css'
 
+
 const advisorySteps = [
   {
     number: '01',
-    label: 'Pre-Listing Assessment',
-    eyebrow: 'EVALUATION & DATA',
-    desc: 'An in-depth property walk-through to review condition, evaluate recent neighborhood sales across Hampton Roads, and identify strategic value-building opportunities.',
+    label: 'Your Personal Strategy',
+    eyebrow: 'UNDERSTAND YOUR GOALS',
+    desc: "Jake starts by understanding your goals, timeline, and property. Together, you'll review market conditions, pricing considerations, and the selling approach that best fits your situation.",
   },
   {
     number: '02',
-    label: 'Strategic Preparation',
-    eyebrow: 'THE SELL READY PATH',
-    desc: 'Whether coordinating high-impact updates through the Sell Ready program or focusing on key cosmetic details, Jake helps you prioritize updates that matter to prospective buyers.',
+    label: 'From Listing to Offers',
+    eyebrow: 'MARKETING & COMMUNICATION',
+    desc: "Once your home is ready, Jake helps coordinate its market presentation, buyer inquiries, showings, and offers—keeping you informed as opportunities develop.",
   },
   {
     number: '03',
-    label: 'Targeted Market Launch',
-    eyebrow: 'MAXIMUM VISIBILITY',
-    desc: 'Professional photography and video walkthroughs, tailored listing distribution, and disciplined negotiation focused on your ideal timeline and net outcome.',
+    label: 'Contract to Closing',
+    eyebrow: 'GUIDANCE THROUGH CLOSING',
+    desc: "From negotiating terms through inspections, appraisal, and closing coordination, Jake helps you navigate the details and understand each important decision along the way.",
   },
 ]
+
 
 export default function SuccessStories() {
   return (
@@ -30,11 +32,14 @@ export default function SuccessStories() {
           <p className="label-overline">Strategic Representation</p>
           <hr className="gold-rule center" aria-hidden="true" />
           <h2 className="display-2" id="advisory-heading">A Guided Path from Consultation to Closing</h2>
-          <p>
-            Selling a home in Hampton Roads requires thoughtful preparation. Jake’s advisory 
-            approach helps you protect your equity, avoid unnecessary expenses, and enter 
-            the market with a clear plan.
-          </p>
+   
+<p>
+  Selling your home involves more than putting a sign in the yard.
+  From your first conversation through closing day, Jake provides
+  personalized guidance, clear communication, and a strategy built
+  around your goals.
+</p>
+
         </div>
 
         <div className="advisory-grid" role="list" aria-label="Seller advisory steps">
@@ -52,7 +57,14 @@ export default function SuccessStories() {
 
         <div className="advisory-footer">
           <div className="advisory-cta-row">
-            <Link to="/contact" className="btn btn-primary" id="advisory-consult-cta">
+            <Link
+  to="/contact"
+  state={{
+    sellerInquiry: true,
+  }}
+  className="btn btn-primary"
+  id="advisory-consult-cta"
+>
               Schedule a Seller Consultation
               <span aria-hidden="true">→</span>
             </Link>

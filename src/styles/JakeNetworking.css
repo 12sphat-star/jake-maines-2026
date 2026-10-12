@@ -1,0 +1,232 @@
+
+/* Jake Maines — Networking Happy Hour */
+
+.jn-section {
+  padding: 110px 24px;
+  background: #101f35;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.jn-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+.jn-eyebrow {
+  color: #c6a667;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin: 0 0 20px;
+}
+
+.jn-gold-rule {
+  width: 58px;
+  height: 2px;
+  background: #c6a667;
+  margin-bottom: 30px;
+}
+
+.jn-content h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+  line-height: 1.14;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin: 0 0 30px;
+  color: #ffffff;
+}
+
+.jn-content h2 span {
+  color: #c6a667;
+}
+
+.jn-lead {
+  font-size: 1.14rem;
+  line-height: 1.75;
+  color: #f1f2f4;
+  margin-bottom: 18px;
+}
+
+.jn-description {
+  color: #c0cbd7;
+  line-height: 1.85;
+  margin-bottom: 34px;
+}
+
+.jn-details {
+  display: grid;
+  gap: 22px;
+  margin-bottom: 38px;
+}
+
+.jn-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.jn-detail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid rgba(198, 166, 103, 0.55);
+  border-radius: 50%;
+  color: #c6a667;
+  font-size: 0.82rem;
+}
+
+.jn-detail strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.jn-detail p {
+  margin: 0;
+  color: #c0cbd7;
+  line-height: 1.65;
+  font-size: 0.92rem;
+}
+
+.jn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 17px 25px;
+  border-radius: 5px;
+  background: #c6a667;
+  color: #101f35;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.jn-button:hover {
+  background: #dfc48c;
+  transform: translateY(-3px);
+}
+
+.jn-note {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: #aebac8;
+}
+
+.jn-visual {
+  position: relative;
+}
+
+.jn-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(198, 166, 103, 0.3);
+  background: #1b3048;
+}
+
+.jn-photo img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jn-photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12%;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(198, 166, 103, 0.18),
+      transparent 45%
+    ),
+    linear-gradient(145deg, #233b57, #101f35);
+}
+
+.jn-photo-fallback span {
+  color: #c6a667;
+  letter-spacing: 0.28em;
+  font-size: 0.82rem;
+  margin-bottom: 24px;
+}
+
+.jn-photo-fallback strong {
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 3.4rem);
+  line-height: 1.18;
+  font-weight: 400;
+}
+
+.jn-photo-fallback strong:last-child {
+  color: #c6a667;
+}
+
+.jn-photo-caption {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: fit-content;
+  max-width: 90%;
+  margin: -55px 0 0 -18px;
+  padding: 22px 30px;
+  background: #f8f6f1;
+  color: #101f35;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.jn-photo-caption span {
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+  color: #8e744b;
+}
+
+.jn-photo-caption strong {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+@media (max-width: 850px) {
+  .jn-section {
+    padding: 75px 20px;
+  }
+
+  .jn-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .jn-photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .jn-photo-caption {
+    margin-left: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jn-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,137 @@
+
+.jce-section {
+  padding: 100px 24px;
+  background: #f8f6f1;
+}
+
+.jce-heading {
+  max-width: 760px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.jce-heading h2 {
+  margin: 18px 0;
+  color: #101f35;
+}
+
+.jce-heading > p:last-child {
+  color: #59677a;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.jce-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.jce-card {
+  position: relative;
+  padding: 48px 42px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(16, 31, 53, 0.12);
+  box-shadow: 0 12px 40px rgba(16, 31, 53, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jce-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(16, 31, 53, 0.12);
+}
+
+.jce-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 42px;
+  width: 64px;
+  height: 3px;
+  background: #c6a667;
+}
+
+.jce-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #a18454;
+  margin-bottom: 22px;
+}
+
+.jce-card h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 400;
+  color: #101f35;
+  margin: 0 0 22px;
+}
+
+.jce-card p {
+  color: #59677a;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.jce-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 34px;
+}
+
+.jce-card li {
+  padding: 11px 0 11px 24px;
+  position: relative;
+  color: #34455c;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.jce-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #b69458;
+  font-weight: 700;
+}
+
+.jce-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #101f35;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid #c6a667;
+  padding-bottom: 7px;
+}
+
+.jce-link:hover {
+  color: #9b793f;
+}
+
+@media (max-width: 768px) {
+  .jce-section {
+    padding: 70px 20px;
+  }
+
+  .jce-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jce-card {
+    padding: 38px 28px;
+  }
+
+  .jce-card::before {
+    left: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jce-card {
+    transition: none;
+  }
+}

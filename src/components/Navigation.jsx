@@ -61,25 +61,21 @@ export default function Navigation() {
         } ${scrolled ? 'nav-scrolled' : ''} ${menuOpen ? 'nav-menu-open' : ''}`}
         aria-label="Main navigation"
       >
-        <div className="container nav-inner">
-          <Link
-            to="/"
-            className="nav-logo"
-            aria-label="Jake Maines Realty homepage"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span className="nav-logo-name">
-              Jake Maines
-            </span>
+        
+<div className="container nav-inner">
+  <Link
+    to="/"
+    className="nav-logo"
+    aria-label="Jake Maines Realty homepage"
+    onClick={() => setMenuOpen(false)}
+  >
+    <img
+      src="/images/jake-maines-logo-horizontal.png"
+      alt="Jake Maines Realty"
+      className="site-header-logo"
+    />
+  </Link>
 
-            <span className="nav-logo-realty">
-              REALTY
-            </span>
-
-            <span className="nav-logo-location">
-              VIRGINIA BEACH
-            </span>
-          </Link>
 
           <ul className="nav-links" role="list">
             {navLinks.map((link) => (

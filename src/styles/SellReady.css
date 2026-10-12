@@ -897,3 +897,219 @@
     animation: none;
   }
 }
+
+
+/* =========================================
+   SELL READY — PREMIUM INTERACTIVE TIMELINE
+   ========================================= */
+
+@keyframes srCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sr-visible .sr-timeline-card {
+  animation: srCardEntrance 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sr-visible .sr-timeline-card:nth-of-type(2) {
+  animation-delay: 0.12s;
+}
+
+.sr-visible .sr-timeline-card:nth-of-type(3) {
+  animation-delay: 0.24s;
+}
+
+.sr-timeline-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.sr-timeline-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(198, 166, 103, 0.12) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.sr-timeline-card:hover {
+  transform: translateY(-7px);
+  border-color: #c6a667;
+  box-shadow: 0 20px 42px rgba(16, 31, 53, 0.12);
+}
+
+.sr-timeline-card:hover::after {
+  transform: translateX(120%);
+}
+
+.sr-timeline-card.is-active {
+  border-color: #c6a667;
+  box-shadow:
+    0 12px 35px rgba(198, 166, 103, 0.13),
+    inset 0 0 0 1px rgba(198, 166, 103, 0.12);
+}
+
+.sr-timeline-card.is-active:hover {
+  transform: translateY(-5px);
+}
+
+.sr-timeline-card:focus-visible {
+  outline: 3px solid #c6a667;
+  outline-offset: 4px;
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sr-visible .sr-timeline-card {
+    animation: none;
+  }
+
+  .sr-timeline-card,
+  .sr-timeline-card::after {
+    transition: none;
+  }
+
+  .sr-timeline-card:hover,
+  .sr-timeline-card.is-active:hover {
+    transform: none;
+  }
+}
+
+
+/* Sell Ready — animated stage presentation */
+
+@keyframes srPanelReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.sr-feature-panel {
+  animation: srPanelReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sr-feature-copy h4,
+.sr-feature-copy p,
+.sr-feature-points,
+.sr-feature-actions {
+  animation: srPanelReveal 0.65s ease both;
+}
+
+.sr-feature-copy h4 {
+  animation-delay: 0.08s;
+}
+
+.sr-feature-copy p {
+  animation-delay: 0.15s;
+}
+
+.sr-feature-points {
+  animation-delay: 0.22s;
+}
+
+.sr-feature-actions {
+  animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-feature-panel,
+  .sr-feature-copy h4,
+  .sr-feature-copy p,
+  .sr-feature-points,
+  .sr-feature-actions {
+    animation: none;
+  }
+}
+
+
+/* Animated Seller Proceeds Comparison */
+
+.sr-proceeds-visual {
+  margin: 26px 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid rgba(16, 31, 53, 0.1);
+  border-radius: 14px;
+}
+
+.sr-proceeds-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #9a7b4f;
+  margin: 0 0 22px;
+}
+
+.sr-proceeds-item {
+  margin-bottom: 22px;
+}
+
+.sr-proceeds-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: #101f35;
+  font-size: 0.9rem;
+}
+
+.sr-proceeds-track {
+  height: 12px;
+  background: #e8e9ec;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.sr-proceeds-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sr-proceeds-asis {
+  background: #8d9bad;
+}
+
+.sr-proceeds-ready {
+  background: linear-gradient(90deg, #b18d4d, #dfc17f);
+}
+
+.sr-proceeds-caption {
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-proceeds-fill {
+    transition: none;
+  }
+}
+
+

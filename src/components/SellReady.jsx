@@ -72,6 +72,23 @@ export default function SellReady() {
   const goToContact = () => {
     navigate('/contact')
   }
+
+const sendSellerScenario = () => {
+  navigate('/contact', {
+    state: {
+      sellerScenario: {
+        asIs,
+        improved,
+        improvements,
+        sellingRate,
+        asIsNet,
+        improvedNet,
+        delta,
+      },
+    },
+  })
+}
+
   const update = (setter, max) => (event) => setter(clamp(Number(event.target.value), max))
   const asIsNet = asIs * (1 - sellingRate / 100)
   const improvedNet = improved * (1 - sellingRate / 100) - improvements
@@ -89,16 +106,15 @@ export default function SellReady() {
         <div className="sr-intro sr-reveal">
           <div className="sr-intro-copy">
             <div className="sr-kicker"><span className="sr-kicker-dot" /> JAKE'S SELL READY PROGRAM</div>
-            <h2 id="sr-heading" className="sr-title">
-  Improve Before You Move.
-  <span> Unlock Your Home's Potential.</span>
+      <h2 id="sr-heading" className="sr-title">
+  Before You Sell,
+  <span> Discover Your Home's True Potential.</span>
 </h2>
-            <p className="sr-lead">
-  Don't just put your home on the market.
-  Discover how strategic renovations and improvements
-  could increase buyer interest, strengthen your
-  home's market value, and potentially put more
-  money in your pocket when you sell.
+       <p className="sr-lead">
+  Before you list, discover what your home could really be worth.
+  Jake helps you identify strategic improvements, understand
+  potential costs, and explore opportunities to strengthen
+  your selling position.
 </p>
             <div className="sr-actions">
               <button className="sr-button sr-button-primary" type="button" onClick={goToContact}>Discuss My Selling Options <span aria-hidden="true">↗</span></button>
@@ -180,7 +196,7 @@ export default function SellReady() {
           </div>
           <div className="sr-calc-panel">
             <div className="sr-calc-grid">
-              <label className="sr-field"><span>As-is sale price ($)</span><input type="number" min="0" step="1000" value={asIs} onChange={update(setAsIs)} /></label>
+              <label className="sr-field"><span>As-is sale price ($)</span><input type="number" min="0" step="1000" value={asIs} onChange={update(setAsIs)}/></label>
               <label className="sr-field"><span>Sale price after improvements ($)</span><input type="number" min="0" step="1000" value={improved} onChange={update(setImproved)} /></label>
               <label className="sr-field"><span>Improvement costs ($)</span><input type="number" min="0" step="500" value={improvements} onChange={update(setImprovements)} /></label>
               <label className="sr-field"><span>Assumed selling costs for both options (%)</span><input type="number" min="0" max="100" step="0.5" value={sellingRate} onChange={update(setSellingRate, 100)} /></label>
@@ -231,6 +247,54 @@ export default function SellReady() {
             </div>
           </div>
 
+
+{/* Animated proceeds comparison */}
+<div className="sr-proceeds-visual">
+  <p className="sr-proceeds-heading">
+    COMPARE YOUR POTENTIAL PROCEEDS
+  </p>
+
+  <div className="sr-proceeds-item">
+    <div className="sr-proceeds-label">
+      <span>Sell As-Is</span>
+      <strong>{money(asIsNet)}</strong>
+    </div>
+    <div className="sr-proceeds-track">
+      <div
+        className="sr-proceeds-fill sr-proceeds-asis"
+        style={{
+          width: `${Math.max(0, Math.min(100,
+            (asIsNet / Math.max(asIsNet, improvedNet, 1)) * 100
+          ))}%`,
+        }}
+      />
+    </div>
+  </div>
+
+  <div className="sr-proceeds-item">
+    <div className="sr-proceeds-label">
+      <span>Sell Ready</span>
+      <strong>{money(improvedNet)}</strong>
+    </div>
+    <div className="sr-proceeds-track">
+      <div
+        className="sr-proceeds-fill sr-proceeds-ready"
+        style={{
+          width: `${Math.max(0, Math.min(100,
+            (improvedNet / Math.max(asIsNet, improvedNet, 1)) * 100
+          ))}%`,
+        }}
+      />
+    </div>
+  </div>
+
+  <p className="sr-proceeds-caption">
+    Illustrative proceeds after entered improvement and selling costs;
+    excludes mortgage payoff and other expenses.
+  </p>
+</div>
+
+
           <div className={`sr-difference ${delta < 0 ? 'sr-difference-negative' : ''}`}>
             <span>
               {delta > 0
@@ -250,15 +314,20 @@ export default function SellReady() {
             </small>
           </div>
 
-          <button className="sr-button sr-button-primary sr-calc-cta" type="button" onClick={goToContact}>Discuss My Selling Options <span aria-hidden="true">→</span></button>
+          <button className="sr-button sr-button-primary sr-calc-cta" type="button" onClick={sendSellerScenario}>Discuss My Selling Options <span aria-hidden="true">→</span></button>
           </div>
         </div>
         {/* Real property footage — intentionally compact for the portfolio demo */}
         <div className="sr-property-showcase sr-reveal">
           <div className="sr-section-heading">
-            <span className="sr-overline">FEATURED PROPERTY</span>
-            <h3>Real Homes. Real Possibilities.</h3>
-            <p>Take a closer look at a property featured by Jake Maines.</p>
+            <span className="sr-overline">THE POWER OF PREPARATION</span>
+           
+<h3>See the Transformation. Imagine the Possibilities.</h3>
+<p>
+  See how thoughtful improvements can transform a home's presentation
+  and help buyers recognize its potential.
+</p>
+
           </div>
          <div className="sr-property-video">
   <iframe

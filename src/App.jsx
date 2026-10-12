@@ -8,6 +8,8 @@ import BuyerExperience from './components/BuyerExperience'
 import SellReady from './components/SellReady'
 import FeaturedListings from './components/FeaturedListings'
 import MeetJake from './components/MeetJake'
+import JakeClientExperience from './components/JakeClientExperience'
+import JakeNetworking from './components/JakeNetworking'
 import Neighborhoods from './components/Neighborhoods'
 import SuccessStories from './components/SuccessStories'
 import AIConcierge from './components/AIConcierge'
@@ -77,6 +79,8 @@ function AboutPage() {
     <>
       <main id="main-content">
         <MeetJake />
+         <JakeClientExperience />
+           <JakeNetworking />
       </main>
       <ContactFooter />
     </>

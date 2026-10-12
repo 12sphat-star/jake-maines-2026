@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/FeaturedListings.css'
+import { Link } from 'react-router-dom'
 
 const filters = ['All', 'Waterfront', 'Luxury', 'New Construction', 'Under $500K']
 
@@ -48,7 +49,25 @@ const listings = [
 
 export default function FeaturedListings() {
   const [activeFilter, setActiveFilter] = useState('All')
-  const [favorites, setFavorites] = useState(new Set())
+  const filteredListings =
+  activeFilter === 'All'
+    ? listings
+    : listings.filter((listing) => listing.tag === activeFilter)
+  const [favorites, setFavorites] = useState(() => {
+  try {
+    const saved = localStorage.getItem('jake-maines-favorites')
+    return new Set(saved ? JSON.parse(saved) : [])
+  } catch {
+    return new Set()
+  }
+})
+
+useEffect(() => {
+  localStorage.setItem(
+    'jake-maines-favorites',
+    JSON.stringify([...favorites])
+  )
+}, [favorites])
 
   const toggleFavorite = (id) => {
     setFavorites(prev => {
@@ -87,8 +106,24 @@ export default function FeaturedListings() {
         </div>
 
         {/* Listings grid */}
+        {filteredListings.length === 0 && (
+  <div className="listings-empty">
+    <h3>No demonstration properties in this category yet.</h3>
+    <p>
+      Jake can help you explore available homes that match
+      your preferences throughout Hampton Roads.
+    </p>
+    <button
+      type="button"
+      className="btn btn-outline"
+      onClick={() => setActiveFilter('All')}
+    >
+      View All Examples
+    </button>
+  </div>
+)}
         <div className="listings-grid" role="list">
-          {listings.map(listing => (
+          {filteredListings.map(listing => (
             <article
               key={listing.id}
               className="property-card"
@@ -117,44 +152,108 @@ export default function FeaturedListings() {
                 </button>
               </div>
 
+              
               {/* Body */}
               <div className="property-card-body">
                 <div className="property-card-price">
                   {listing.price}
-                  <span className="property-card-price-note"> ⓘ {listing.priceNote}</span>
+                  <span className="property-card-price-note">
+                    {' '}ⓘ {listing.priceNote}
+                  </span>
                 </div>
-                <div className="property-card-address">{listing.address}</div>
+
+                <div className="property-card-address">
+                  {listing.address}
+                </div>
 
                 <div className="property-card-meta">
                   <div className="property-meta-item">
                     <span className="property-meta-icon" aria-hidden="true">🛏</span>
                     <span>{listing.beds} Beds</span>
                   </div>
+
                   <div className="property-meta-item">
                     <span className="property-meta-icon" aria-hidden="true">🚿</span>
                     <span>{listing.baths} Baths</span>
                   </div>
+
                   <div className="property-meta-item">
                     <span className="property-meta-icon" aria-hidden="true">📐</span>
                     <span>{listing.sqft} sq ft</span>
                   </div>
                 </div>
+
+                <div className="property-card-actions">
+                  <Link
+                    to="/contact"
+                    state={{
+                      propertyInquiry: {
+                        id: listing.id,
+                        address: listing.address,
+                        category: listing.tag,
+                      },
+                    }}
+                    className="btn btn-primary property-inquiry-btn"
+                  >
+                    Ask Jake About Similar Homes →
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
+
         </div>
 
         {/* View all */}
-        <div className="listings-view-all">
-          <button
-            className="btn btn-outline"
-            id="view-all-listings-btn"
-            aria-label="View all available properties"
-            onClick={() => alert('Full IDX property search launching soon!')}
-          >
-            View All Properties
-          </button>
-        </div>
+
+{/* Featured Property Video Tour */}
+<div className="featured-video-section">
+  <div className="featured-video-heading">
+    <p className="label-overline">Experience the Property</p>
+    <h3>Take a Tour With Jake</h3>
+    <p>
+      Explore a featured property through video and discover
+      how Jake brings homes to life for prospective buyers.
+    </p>
+  </div>
+
+  <div className="featured-video-frame">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/OWGxpI1cujQ"
+      title="Jake Maines Realty Featured Property Tour"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    />
+  </div>
+
+  <div className="featured-video-actions">
+    <Link
+      to="/contact"
+      state={{
+        propertyInquiry: {
+          id: 'featured-video-tour',
+          address: 'Featured Property Video Tour',
+          category: 'Video Tour',
+        },
+      }}
+      className="btn btn-primary"
+    >
+      Ask Jake About This Property →
+    </Link>
+  </div>
+</div>
+
+      <div className="listings-view-all">
+  <Link
+    to="/buy"
+    className="btn btn-outline"
+    id="view-all-listings-btn"
+  >
+    Find Homes That Match Your Needs →
+  </Link>
+</div>
 
         <p className="listings-disclaimer" role="note">
           Photos shown are illustrative placeholders. Actual property images, addresses, and prices will be populated via IDX integration prior to launch. 

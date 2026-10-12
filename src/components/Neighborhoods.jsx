@@ -139,10 +139,10 @@ const vbNeighborhoodClusters = [
     ],
   },
   {
-    cluster: 'Town Center & Central Suburban Corridors',
+    cluster: 'Town Center & Central Virginia Beach',
     desc: 'Walkable dining, high-rise living, and central commuting convenience.',
     items: [
-      { name: 'Town Center', tag: 'Urban Downtown Hub', url: 'https://jakemainesrealtor.com/virginia-beach-neighborhoods/town-center/' },
+      { name: 'Town Center', tag: 'Urban Living · Dining · Entertainment' , url: 'https://jakemainesrealtor.com/virginia-beach-neighborhoods/town-center/' },
       { name: 'Aragona Village', tag: 'Central Suburban', url: 'https://jakemainesrealtor.com/virginia-beach-neighborhoods/aragona-village/' },
       { name: 'Kempsville', tag: 'Established Family Hub', url: 'https://jakemainesrealtor.com/virginia-beach-neighborhoods/kempsville/' },
     ],
@@ -159,6 +159,206 @@ const vbNeighborhoodClusters = [
     ],
   },
 ]
+
+const otherCityNeighborhoods = {
+  chesapeake: [
+    {
+      name: 'Great Bridge',
+      tag: 'Waterway & Established Suburbs',
+      description: 'A mix of established subdivisions, newer homes, local shopping, and access to the Intracoastal Waterway.',
+      housing: 'Single-family homes, townhomes, and newer subdivisions.',
+    },
+    {
+      name: 'Greenbrier',
+      tag: 'Shopping & Convenience',
+      description: 'A major residential and commercial corridor with shopping, dining, offices, and convenient highway connections.',
+      housing: 'Townhomes, condominiums, and single-family subdivisions.',
+    },
+    {
+      name: 'Hickory',
+      tag: 'Open Space & Residential',
+      description: 'Southern Chesapeake communities with a mix of established homes, larger parcels, and more rural surroundings.',
+      housing: 'Detached homes, newer construction, and larger-lot properties.',
+    },
+    {
+      name: 'Western Branch',
+      tag: 'Established Communities',
+      description: 'Residential areas in western Chesapeake with shopping corridors, parks, and connections toward Suffolk and Portsmouth.',
+      housing: 'Brick ranches, traditional two-story homes, and townhomes.',
+    },
+    {
+      name: 'Deep Creek',
+      tag: 'Historic & Suburban Mix',
+      description: 'An established Chesapeake area with residential streets, commercial conveniences, and access toward the Dismal Swamp Canal.',
+      housing: 'Ranches, traditional homes, townhomes, and newer construction.',
+    },
+  ],
+
+  norfolk: [
+    {
+      name: 'Ghent',
+      tag: 'Historic & Walkable',
+      description: 'Historic streetscapes, restaurants, shops, cultural destinations, and distinctive architectural character.',
+      housing: 'Historic houses, condominiums, apartments, and townhomes.',
+    },
+    {
+      name: 'Larchmont',
+      tag: 'Established Residential',
+      description: 'Tree-lined residential streets near the Lafayette River, Old Dominion University, and neighborhood amenities.',
+      housing: 'Traditional detached homes and historic residences.',
+    },
+    {
+      name: 'Ocean View',
+      tag: 'Chesapeake Bay Living',
+      description: 'A broad bayfront area with beaches, parks, and a range of residential communities.',
+      housing: 'Coastal cottages, condominiums, townhomes, and detached homes.',
+    },
+    {
+      name: 'Colonial Place',
+      tag: 'Historic Neighborhood',
+      description: 'An established residential neighborhood with older architecture and access to central Norfolk.',
+      housing: 'Historic detached houses and traditional residential properties.',
+    },
+    {
+      name: 'Freemason',
+      tag: 'Downtown Waterfront',
+      description: 'Historic downtown surroundings near the Elizabeth River, restaurants, and cultural attractions.',
+      housing: 'Historic townhomes, condominiums, and urban residences.',
+    },
+  ],
+
+  portsmouth: [
+    {
+      name: 'Olde Towne',
+      tag: 'Historic Waterfront',
+      description: 'Historic architecture, walkable streets, and waterfront attractions near downtown Portsmouth.',
+      housing: 'Historic houses, townhomes, and condominiums.',
+    },
+    {
+      name: 'Churchland',
+      tag: 'Established Suburbs',
+      description: 'Residential communities in northern Portsmouth with parks, retail, and connections toward Western Branch.',
+      housing: 'Brick ranches, traditional homes, and townhomes.',
+    },
+    {
+      name: 'Port Norfolk',
+      tag: 'Historic Residential',
+      description: 'An older residential district known for its traditional architecture and proximity to the Elizabeth River.',
+      housing: 'Historic detached homes and renovated residences.',
+    },
+    {
+      name: 'Park Manor',
+      tag: 'Residential Convenience',
+      description: 'An established Portsmouth area with residential streets and access to local shopping and major roads.',
+      housing: 'Mid-century detached homes and traditional properties.',
+    },
+    {
+      name: 'Cradock',
+      tag: 'Historic Planned Community',
+      description: 'A distinctive early planned residential community with historic streets and traditional housing.',
+      housing: 'Historic cottages, duplexes, and detached homes.',
+    },
+  ],
+
+  suffolk: [
+    {
+      name: 'Harbour View',
+      tag: 'North Suffolk Convenience',
+      description: 'A growing residential and commercial area with shopping, dining, and access to regional highways.',
+      housing: 'Newer detached homes, townhomes, and planned communities.',
+    },
+    {
+      name: 'Driver',
+      tag: 'Historic Village Character',
+      description: 'An established North Suffolk community with local businesses, residential streets, and historic character.',
+      housing: 'Traditional homes, cottages, and newer residential development.',
+    },
+    {
+      name: 'Bennett’s Creek',
+      tag: 'Waterway Communities',
+      description: 'Residential areas near Bennett’s Creek with boating opportunities and connections to North Suffolk amenities.',
+      housing: 'Waterfront properties, detached homes, and newer subdivisions.',
+    },
+    {
+      name: 'Downtown Suffolk',
+      tag: 'Historic Downtown',
+      description: 'Historic streets, local businesses, civic landmarks, and established neighborhoods.',
+      housing: 'Historic houses, traditional residences, and some multifamily options.',
+    },
+    {
+      name: 'Holland',
+      tag: 'Rural & Small-Town',
+      description: 'Southern Suffolk surroundings with agricultural landscapes, established homes, and a quieter setting.',
+      housing: 'Detached homes, rural properties, and larger parcels.',
+    },
+  ],
+
+  hampton: [
+    {
+      name: 'Phoebus',
+      tag: 'Historic & Walkable',
+      description: 'A historic district near Fort Monroe with restaurants, shops, and distinctive local character.',
+      housing: 'Historic homes, cottages, and smaller residential properties.',
+    },
+    {
+      name: 'Buckroe Beach',
+      tag: 'Bayfront Recreation',
+      description: 'A Chesapeake Bay community with public beach access, a waterfront park, and residential streets.',
+      housing: 'Coastal cottages, townhomes, and newer homes.',
+    },
+    {
+      name: 'Fox Hill',
+      tag: 'Coastal Residential',
+      description: 'An established area with residential communities and access to waterways and coastal recreation.',
+      housing: 'Detached homes, ranches, and waterfront properties.',
+    },
+    {
+      name: 'Grandview',
+      tag: 'Nature & Shoreline',
+      description: 'A coastal area known for its natural shoreline setting and proximity to Grandview Nature Preserve.',
+      housing: 'Coastal detached homes and waterfront properties.',
+    },
+    {
+      name: 'Wythe',
+      tag: 'Historic Residential',
+      description: 'An established Hampton area near the Hampton Roads waterfront with traditional residential streets.',
+      housing: 'Historic houses, brick homes, and waterfront properties.',
+    },
+  ],
+
+  'newport-news': [
+    {
+      name: 'Hilton Village',
+      tag: 'Historic Village',
+      description: 'A distinctive historic community with English-inspired architecture and neighborhood businesses.',
+      housing: 'Historic cottages, traditional detached homes, and smaller properties.',
+    },
+    {
+      name: 'Riverside',
+      tag: 'James River Setting',
+      description: 'An established residential area with access to the James River shoreline and nearby community amenities.',
+      housing: 'Traditional detached homes and some waterfront properties.',
+    },
+    {
+      name: 'Denbigh',
+      tag: 'Residential & Commercial',
+      description: 'A broad northern Newport News area with established neighborhoods, shopping, and transportation connections.',
+      housing: 'Ranches, townhomes, apartments, and detached homes.',
+    },
+    {
+      name: 'Oyster Point',
+      tag: 'Central Business District',
+      description: 'A central Newport News corridor featuring offices, shopping, dining, and nearby residential communities.',
+      housing: 'Townhomes, condominiums, apartments, and detached homes nearby.',
+    },
+    {
+      name: 'Kiln Creek',
+      tag: 'Planned Community',
+      description: 'A master-planned residential community spanning portions of Newport News and York County.',
+      housing: 'Detached homes, townhomes, and condominiums.',
+    },
+  ],
+}
 
 // Seven Homebuyer Discovery Questions (Phase 2C Item 4)
 // Fair-housing compliant discovery covering Budget, Areas, Home Type, Commute, Lifestyle, Priorities, Timeline.
@@ -398,6 +598,8 @@ export default function Neighborhoods() {
   const [quizCompleted, setQuizCompleted] = useState(false)
 
   const activeCity = citiesData.find((c) => c.id === activeCityId) || citiesData[0]
+const isVirginiaBeach = activeCityId === 'vb'
+const selectedNeighborhoods = otherCityNeighborhoods[activeCityId] || []
 
   // Handle Quiz selection
   const handleSelectOption = (questionId, option) => {
@@ -430,11 +632,22 @@ export default function Neighborhoods() {
     })
 
     const sortedCityIds = Object.keys(scores).sort((a, b) => scores[b] - scores[a])
-    const topThree = sortedCityIds.slice(0, 3).map((id, index) => {
-      const city = citiesData.find((c) => c.id === id)
-      const pct = 96 - index * 6
-      return { ...city, matchPct: `${pct}% Match` }
-    })
+    
+const topThree = sortedCityIds.slice(0, 3).map((id, index) => {
+  const city = citiesData.find((c) => c.id === id)
+
+  const matchLabels = [
+    'Top Recommendation',
+    'Strong Alternative',
+    'Also Worth Exploring',
+  ]
+
+  return {
+    ...city,
+    matchPct: matchLabels[index],
+  }
+})
+
 
     return topThree
   }
@@ -639,7 +852,7 @@ export default function Neighborhoods() {
                               document.getElementById('city-explorer')?.scrollIntoView({ behavior: 'smooth' })
                             }}
                           >
-                            Explore {match.name} Guide Below ↓
+                           Explore {match.name}
                           </button>
                         </div>
                       </div>
@@ -654,10 +867,25 @@ export default function Neighborhoods() {
                       Retake Discovery Quiz
                     </button>
 
-                    <Link to="/contact" className="btn btn-primary" id="nb-discuss-results-btn">
-                      Discuss Results With Jake
-                      <ArrowRight size={15} />
-                    </Link>
+                   
+<Link
+  to="/contact"
+  state={{
+    neighborhoodQuiz: {
+      answers: quizQuestions.map((question) => ({
+        question: question.title,
+        answer: quizAnswers[question.id]?.label || 'Not answered',
+      })),
+      recommendedCities: topMatches.map((city) => city.name),
+    },
+  }}
+  className="btn btn-primary"
+  id="nb-discuss-results-btn"
+>
+  Discuss Results With Jake
+  <ArrowRight size={15} />
+</Link>
+
                   </div>
 
                   <p className="nb-results-disclaimer">
@@ -754,61 +982,128 @@ export default function Neighborhoods() {
                     <ExternalLink size={15} />
                   </a>
 
-                  <Link to="/contact" className="btn btn-outline nb-btn-action">
-                    Ask Jake About {activeCity.name}
-                    <ArrowRight size={15} />
-                  </Link>
+                 <Link
+  to="/contact"
+  state={{
+    neighborhoodInquiry: {
+      city: activeCity.name,
+      neighborhood: 'the area',
+    },
+  }}
+  className="btn btn-outline nb-btn-action"
+>
+  Ask Jake About {activeCity.name}
+  <ArrowRight size={15} />
+</Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+   
+{/* 4. DYNAMIC HAMPTON ROADS NEIGHBORHOOD DIRECTORY */}
+<section className="nb-clusters-section" aria-labelledby="nb-clusters-title">
+  <div className="container">
+    <div className="section-header">
+      <p className="label-overline">Hyperlocal Deep-Dive</p>
+      <hr className="gold-rule center" aria-hidden="true" />
 
-      {/* 4. VIRGINIA BEACH 18-NEIGHBORHOOD DIRECTORY */}
-      <section className="nb-clusters-section" aria-labelledby="nb-clusters-title">
-        <div className="container">
-          <div className="section-header">
-            <p className="label-overline">Hyperlocal Deep-Dive</p>
-            <hr className="gold-rule center" aria-hidden="true" />
-            <h2 className="display-2" id="nb-clusters-title">
-              Virginia Beach <em>Neighborhood Directory</em>
-            </h2>
-            <p>
-              Explore all 18 Virginia Beach communities Jake covers, categorized by coastal proximity,
-              waterfront access, urban convenience, and quiet suburban enclaves.
-            </p>
-          </div>
+      <h2 className="display-2" id="nb-clusters-title">
+        {activeCity.name} <em>Neighborhood Directory</em>
+      </h2>
 
-          <div className="nb-clusters-grid">
-            {vbNeighborhoodClusters.map((c) => (
-              <div className="nb-cluster-card" key={c.cluster}>
-                <div className="nb-cluster-header">
-                  <h3 className="nb-cluster-title">{c.cluster}</h3>
-                  <p className="nb-cluster-desc">{c.desc}</p>
-                </div>
+      <p>
+        {isVirginiaBeach
+          ? 'Explore 18 Virginia Beach communities organized by coastal living, waterfront access, central convenience, and suburban surroundings.'
+          : `Explore representative communities in ${activeCity.name}. Select a neighborhood to discover its character, housing options, and local highlights.`}
+      </p>
+    </div>
 
-                <ul className="nb-cluster-list">
-                  {c.items.map((item) => (
-                    <li key={item.name} className="nb-cluster-item">
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="nb-cluster-link"
+    {isVirginiaBeach ? (
+      <div className="nb-clusters-grid">
+        {vbNeighborhoodClusters.map((cluster) => (
+          <div className="nb-cluster-card" key={cluster.cluster}>
+            <div className="nb-cluster-header">
+              <h3 className="nb-cluster-title">{cluster.cluster}</h3>
+              <p className="nb-cluster-desc">{cluster.desc}</p>
+            </div>
+
+            <ul className="nb-cluster-list">
+              {cluster.items.map((item) => (
+                <li key={item.name} className="nb-cluster-item">
+                  <details className="nb-neighborhood-details">
+                    <summary className="nb-cluster-link">
+                      <span className="nb-cluster-name">{item.name}</span>
+                      <span className="nb-cluster-tag">{item.tag}</span>
+                      <ChevronRight size={15} className="nb-cluster-ext" />
+                    </summary>
+
+                    <div className="nb-neighborhood-expanded">
+                      <p>
+                        Discover homes and local amenities in the
+                        {' '}{item.name} area of Virginia Beach.
+                      </p>
+
+                      <Link
+                        to="/contact"
+                        state={{
+                          neighborhoodInquiry: {
+                            city: 'Virginia Beach',
+                            neighborhood: item.name,
+                          },
+                        }}
+                        className="btn btn-primary"
                       >
-                        <span className="nb-cluster-name">{item.name}</span>
-                        <span className="nb-cluster-tag">{item.tag}</span>
-                        <ExternalLink size={13} className="nb-cluster-ext" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                        Ask Jake About {item.name}
+                        <ArrowRight size={15} />
+                      </Link>
+                    </div>
+                  </details>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    ) : (
+      <div className="nb-clusters-grid">
+        {selectedNeighborhoods.map((neighborhood) => (
+          <div className="nb-cluster-card" key={neighborhood.name}>
+            <div className="nb-cluster-header">
+              <span className="label-overline">{neighborhood.tag}</span>
+              <h3 className="nb-cluster-title">{neighborhood.name}</h3>
+              <p className="nb-cluster-desc">{activeCity.name}, Virginia</p>
+            </div>
+
+            <div className="nb-neighborhood-expanded">
+              <p>{neighborhood.description}</p>
+
+              <p>
+                <strong>Typical Housing:</strong> {neighborhood.housing}
+              </p>
+
+              <Link
+                to="/contact"
+                state={{
+                  neighborhoodInquiry: {
+                    city: activeCity.name,
+                    neighborhood: neighborhood.name,
+                  },
+                }}
+                className="btn btn-primary"
+              >
+                Ask Jake About {neighborhood.name}
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
     </div>
   )
 }

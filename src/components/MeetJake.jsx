@@ -1,18 +1,50 @@
 import '../styles/MeetJake.css'
 
+
 const pillars = [
-  { title: 'Virginia Beach Native',    sub: 'Deep roots across all Hampton Roads communities' },
-  { title: 'Local Market Specialist',  sub: 'Neighborhood-level data and hyperlocal insight' },
-  { title: 'Sell Ready Creator',       sub: 'Pioneering the pre-sale improvement program' },
-  { title: 'Full-Service Approach',    sub: 'From strategy through closing — and beyond' },
+  {
+    title: 'Local Market Knowledge',
+    sub: 'Virginia Beach and greater Hampton Roads',
+  },
+  {
+    title: 'Marketing Background',
+    sub: 'Strategic property presentation and positioning',
+  },
+  {
+    title: 'Sell Ready Program',
+    sub: 'Explore improvements before listing',
+  },
+  {
+    title: 'Personalized Guidance',
+    sub: 'From your first conversation through closing',
+  },
 ]
 
+
+
 const awards = [
-  { icon: '🏆', label: 'Top Producer',           sub: 'Placeholder — to be verified' },
-  { icon: '⭐', label: '5-Star Reviews',          sub: 'Placeholder — to be verified' },
-  { icon: '🤝', label: '12 Stone Portfolio',      sub: 'Flagship Agent' },
-  { icon: '📍', label: 'Hampton Roads Expert',    sub: '10+ years local' },
+  {
+    icon: '🏡',
+    label: 'Buyer Guidance',
+    sub: 'From home search to closing',
+  },
+  {
+    icon: '📈',
+    label: 'Seller Strategy',
+    sub: 'Preparation, pricing and marketing',
+  },
+  {
+    icon: '🤝',
+    label: 'Personal Service',
+    sub: 'Guidance built around your goals',
+  },
+  {
+    icon: '📍',
+    label: 'Hampton Roads',
+    sub: 'Local real estate knowledge',
+  },
 ]
+
 
 export default function MeetJake() {
   return (
@@ -25,7 +57,7 @@ export default function MeetJake() {
             <div className="meet-jake-portrait-frame">
               <img
                 src="/images/jake-portrait.png"
-                alt="Portrait placeholder — Jake Maines, Virginia Beach Realtor (actual photo to be provided)"
+                alt="Jake Maines, Virginia Beach real estate professional"
                 loading="lazy"
               />
             </div>
@@ -39,20 +71,27 @@ export default function MeetJake() {
           <div className="meet-jake-content">
             <p className="label-overline">Your Local Expert</p>
             <hr className="gold-rule" aria-hidden="true" />
-            <h2 className="display-2">Real Estate, Done Right.</h2>
+            <h2 className="display-2">Real Estate Is Personal. Your Strategy Should Be Too.</h2>
 
-            <p className="meet-jake-bio">
-              Jake Maines isn't just a Virginia Beach Realtor® — he's a dedicated 
-              advocate for every client who walks through his door. Born and raised 
-              in the Hampton Roads area, Jake brings neighborhood-level insight that 
-              national platforms simply can't replicate.
-            </p>
-            <p className="meet-jake-bio">
-              His signature Sell Ready program represents a new standard: connecting 
-              eligible homeowners with a vetted contractor network to explore strategic 
-              pre-sale improvements that may help maximize their net proceeds — with 
-              qualifying costs potentially deferred until closing.
-            </p>
+           
+<p>
+  Jake Maines made Hampton Roads his home in 2011 when
+  he moved to the area to study marketing at Old Dominion
+  University. Today, he helps buyers and sellers navigate
+  the Virginia Beach and greater Hampton Roads real estate
+  market with local knowledge, marketing experience, and
+  personalized guidance.
+</p>
+
+<p>
+  Whether you're searching for the right home or preparing
+  to sell, Jake focuses on understanding your goals,
+  developing a thoughtful strategy, and helping you make
+  informed decisions. From neighborhood insights to
+  property preparation and negotiations, his approach
+  puts your priorities at the center of the process.
+</p>
+
 
             <div className="meet-jake-pillars" aria-label="Jake's key differentiators">
               {pillars.map(p => (
@@ -110,8 +149,8 @@ export default function MeetJake() {
         </div>
 
         {/* Awards strip */}
-        <div className="meet-jake-awards" aria-label="Recognition and achievements">
-          <p className="meet-jake-awards-label">Recognition & Credentials</p>
+        <div className="meet-jake-awards" aria-label="Real estate services and client advantages">
+          <p className="meet-jake-awards-label">How Jake Helps His Clients</p>
           <div className="meet-jake-awards-row">
             {awards.map(a => (
               <div key={a.label} className="award-item">
@@ -122,10 +161,6 @@ export default function MeetJake() {
             ))}
           </div>
         </div>
-
-        <p style={{ textAlign: 'center', fontSize: '0.62rem', color: 'var(--text-light)', fontStyle: 'italic', marginTop: '1rem' }}>
-          ⚠️ Portrait shown is a placeholder. Awards and statistics shown require verification before publication.
-        </p>
       </div>
     </section>
   )

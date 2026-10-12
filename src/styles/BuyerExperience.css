@@ -1247,3 +1247,103 @@
     animation: none !important;
   }
 }
+
+/* ================================================
+   BUYER BLUEPRINT — READABILITY REFINEMENT
+   ================================================ */
+
+.bx-planner-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 60px);
+}
+
+.bx-summary-card {
+  padding: clamp(26px, 3vw, 38px);
+  gap: 24px;
+}
+
+.bx-community-cards {
+  gap: 18px;
+}
+
+.bx-community-card {
+  padding: 22px;
+  gap: 12px;
+}
+
+.bx-community-name {
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.bx-community-city,
+.bx-community-housing,
+.bx-community-why,
+.bx-community-tradeoff {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.bx-community-why strong {
+  font-size: 0.78rem;
+}
+
+.bx-community-badge {
+  font-size: 0.7rem;
+  white-space: normal;
+  text-align: right;
+}
+
+.bx-summary-row,
+.bx-summary-top p {
+  font-size: 0.9rem;
+}
+
+.bx-summary-note {
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.bx-chip-note,
+.bx-priority-desc,
+.bx-budget-card small,
+.bx-group-subtitle {
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.bx-chip,
+.bx-priority-card {
+  padding: 17px 20px;
+}
+
+.bx-chip-title,
+.bx-priority-title {
+  font-size: 1rem;
+}
+
+.bx-matches-header h4 {
+  font-size: 1.45rem;
+}
+
+/* Preserve single-column layout on tablets and phones */
+@media (max-width: 980px) {
+  .bx-planner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .bx-community-card {
+    padding: 18px;
+  }
+
+  .bx-summary-card {
+    padding: 22px;
+  }
+
+  .bx-community-name {
+    font-size: 1.4rem;
+  }
+}
+

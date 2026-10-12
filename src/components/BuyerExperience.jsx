@@ -733,14 +733,27 @@ export default function BuyerExperience() {
 
                 {/* Clear Next Actions */}
                 <div className="bx-summary-actions">
-                  <Link
-                    to="/contact"
-                    className="btn btn-primary bx-summary-btn"
-                    id="blueprint-discuss-cta"
-                  >
-                    Discuss This Blueprint With Jake
-                    <ArrowRight size={15} />
-                  </Link>
+                 
+<Link
+  to="/contact"
+  state={{
+    buyerBlueprint: {
+      homeStyle: activeStyle?.label,
+      lifestyle: activePriority?.label,
+      budget: activeBudget?.label,
+      timeline: activeTimeline?.label,
+      recommendedAreas: matchedCommunities.map(
+        (community) => `${community.name}, ${community.city}`
+      ),
+    },
+  }}
+  className="btn btn-primary bx-summary-btn"
+  id="blueprint-discuss-cta"
+>
+  Discuss This Blueprint With Jake
+  <ArrowRight size={15} />
+</Link>
+
 
                   <a
                     href={LIVE_SEARCH_URL}

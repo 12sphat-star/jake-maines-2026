@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import '../styles/ContactFooter.css'
 
@@ -44,28 +44,179 @@ export default function ContactFooter() {
     message: '',
   })
 
+  // Populate the contact form from the Buyer Blueprint or Neighborhood Discovery Quiz.
+
+
+useEffect(() => {
+  const blueprint = location.state?.buyerBlueprint
+  const neighborhoodQuiz = location.state?.neighborhoodQuiz
+  const inquiry = location.state?.neighborhoodInquiry
+  const sellerScenario = location.state?.sellerScenario
+  const propertyInquiry = location.state?.propertyInquiry
+  
+if (sellerScenario) {
+  const formatMoney = (value) =>
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    }).format(value)
+
+  const message = [
+    'Hi Jake,',
+    '',
+    'I used the Sell Ready calculator on your website',
+    'and would like to discuss my selling options.',
+    '',
+    'MY SELL READY SCENARIO',
+    `Estimated As-Is Sale Price: ${formatMoney(sellerScenario.asIs)}`,
+    `Estimated Sale Price After Improvements: ${formatMoney(sellerScenario.improved)}`,
+    `Estimated Improvement Costs: ${formatMoney(sellerScenario.improvements)}`,
+    `Assumed Selling Costs: ${sellerScenario.sellingRate}%`,
+    '',
+    'ILLUSTRATIVE RESULTS',
+    `As-Is Proceeds: ${formatMoney(sellerScenario.asIsNet)}`,
+    `Sell Ready Proceeds: ${formatMoney(sellerScenario.improvedNet)}`,
+    `Estimated Difference: ${formatMoney(sellerScenario.delta)}`,
+    '',
+    'I understand these figures are hypothetical and',
+    'do not represent a guaranteed sale price or proceeds.',
+    '',
+    'Please contact me to discuss my property.',
+  ].join('\n')
+
+  setFormData((previous) => ({
+    ...previous,
+    interest: 'sell',
+    message,
+  }))
+
+  return
+}
+
+if (location.state?.sellerInquiry) {
+  setFormData((prev) => ({
+    ...prev,
+    interest: 'sell',
+    message:
+      "I'd like to schedule a seller consultation with Jake to discuss my property, selling timeline, and options.",
+  }))
+  return
+}
+
+
+if (inquiry) {
+  setFormData((prev) => ({
+    ...prev,
+    interest: 'buy',
+    message: `I'm interested in learning more about ${inquiry.neighborhood} in ${inquiry.city}, Virginia. Please contact me to discuss available homes and the neighborhood.`,
+  }))
+}
+
+if (propertyInquiry) {
+  setFormData((prev) => ({
+    ...prev,
+    interest: 'buy',
+    message: [
+      'Hi Jake,',
+      '',
+      'I was exploring the sample properties on your website',
+      'and would like to learn about similar available homes.',
+      '',
+      `Property Example: ${propertyInquiry.address}`,
+      `Property Category: ${propertyInquiry.category}`,
+      `Reference: ${propertyInquiry.id}`,
+      '',
+      'Please contact me to discuss available properties',
+      'that match my interests.',
+    ].join('\n'),
+  }))
+}
+if (inquiry || propertyInquiry) return
+if (!blueprint && !neighborhoodQuiz) return
+
+  let message = ''
+
+  if (blueprint) {
+    message = [
+      'Hi Jake,',
+      '',
+      'I completed the Buyer Blueprint on your website and would',
+      'like to discuss my home search with you.',
+      '',
+      'MY BUYER BLUEPRINT',
+      `Home Style: ${blueprint.homeStyle || 'Not specified'}`,
+      `Lifestyle Priority: ${blueprint.lifestyle || 'Not specified'}`,
+      `Budget: ${blueprint.budget || 'Not specified'}`,
+      `Moving Timeline: ${blueprint.timeline || 'Not specified'}`,
+      '',
+      'RECOMMENDED AREAS',
+      ...(blueprint.recommendedAreas || []).map(
+        (area) => `- ${area}`
+      ),
+      '',
+      'Additional information:',
+      '',
+    ].join('\n')
+  }
+
+  if (neighborhoodQuiz) {
+    message = [
+      'Hi Jake,',
+      '',
+      'I completed the 7-Question Neighborhood Discovery Quiz',
+      'on your website and would like to discuss my results.',
+      '',
+      'MY NEIGHBORHOOD DISCOVERY ANSWERS',
+      ...(neighborhoodQuiz.answers || []).map(
+        (item, index) =>
+          `${index + 1}. ${item.question}: ${item.answer}`
+      ),
+      '',
+      'MY TOP 3 RECOMMENDED CITIES',
+      ...(neighborhoodQuiz.recommendedCities || []).map(
+        (city, index) => `${index + 1}. ${city}`
+      ),
+      '',
+      'Additional information:',
+      '',
+    ].join('\n')
+  }
+
+  setFormData((previous) => ({
+    ...previous,
+    interest: 'buy',
+    message,
+  }))
+  }, [location.state])
+
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormData((previous) => ({ ...previous, [name]: value }))
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = async (event) => {
+  event.preventDefault()
 
-    // Temporary email handoff until a verified CRM endpoint is connected.
-    // Opening an email draft is NOT confirmation that a message was sent.
-    const subject = `Website inquiry: ${formData.interest || 'General'}`
-    const body = [
-      `Name: ${formData.firstName} ${formData.lastName}`,
-      `Email: ${formData.email}`,
-      `Phone: ${formData.phone || 'Not provided'}`,
-      `Interest: ${formData.interest || 'Not specified'}`,
-      '',
-      formData.message,
-    ].join('\n')
+  try {
+    const response = await fetch('/api/lead', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    if (!response.ok) {
+      throw new Error('Submission failed')
+    }
+
+    alert('Thank you! Your demo inquiry was submitted successfully.')
+  } catch (error) {
+    console.error('Lead submission error:', error)
+    alert('Unable to send your inquiry. Please try again.')
   }
+}
 
   return (
     <>
